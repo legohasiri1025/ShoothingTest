@@ -23,6 +23,7 @@
     <ProjectGuid>{4A84C566-2CAD-4BBC-90ED-1C055ACE2911}</ProjectGuid>
     <RootNamespace>ShoothingTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <ProjectName>ST_01</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -127,6 +128,7 @@
     <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\bullet.cpp" />
     <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\func.cpp" />
     <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\main.cpp" />
+    <ClCompile Include="bullet_graphic.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
