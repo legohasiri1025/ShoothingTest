@@ -123,12 +123,15 @@
     <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\bullet.h" />
     <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\define.h" />
     <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\func.h" />
+    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\player.h" />
+    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\player01.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\bullet.cpp" />
+    <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\Bullet_graphic.cpp" />
     <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\func.cpp" />
     <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\main.cpp" />
-    <ClCompile Include="bullet_graphic.cpp" />
+    <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\player01.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
