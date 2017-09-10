@@ -120,15 +120,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\bullet.h" />
     <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\define.h" />
+    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\front.h" />
     <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\func.h" />
     <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\player.h" />
     <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\player01.h" />
+    <ClInclude Include="source\bullet.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\bullet.cpp" />
     <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\Bullet_graphic.cpp" />
+    <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\front.cpp" />
     <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\func.cpp" />
     <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\main.cpp" />
     <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\player01.cpp" />
