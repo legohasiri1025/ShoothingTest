@@ -30,7 +30,10 @@
     <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\front.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="source\bullet.h">
+    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\class_admin.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\bullet.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

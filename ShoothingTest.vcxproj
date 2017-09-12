@@ -125,7 +125,8 @@
     <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\func.h" />
     <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\player.h" />
     <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\player01.h" />
-    <ClInclude Include="source\bullet.h" />
+    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\bullet.h" />
+    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\class_admin.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\bullet.cpp" />
