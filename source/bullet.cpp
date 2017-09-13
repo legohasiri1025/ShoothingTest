@@ -2,10 +2,9 @@
 #include "define.h"
 #include "DxLib.h"
 
-int BG[Tn][Cn];//’e‰æ‘œ
 BULLET BulletData[Tn][Cn] = {
 	{ { Big,BG[0][0] },{ Big,BG[0][1] },{ Big,BG[0][2] },{ Big,BG[0][3] },{ Big,BG[0][4] },{ Big,BG[0][5] },{ Big,BG[0][6] },{ Big,BG[0][7] },{ Big,BG[0][8] },{ Big,BG[0][9] },{ Big,BG[0][10] } },
-	{ { Medium,BG[1][0] },{ Medium,BG[1][1] },{ Medium,BG[1][2] },{ Medium,BG[1][3] },{ Medium,BG[1][4] },{ Medium,BG[1][5] },{ Medium,BG[1][6] },{ Medium,BG[1][7] },{ Medium,BG[1][8] },{ Medium,BG[1][9] },{ Medium,BG[1][10] } },
+	{ { Medium1,BG[1][0] },{ Medium1,BG[1][1] },{ Medium1,BG[1][2] },{ Medium1,BG[1][3] },{ Medium1,BG[1][4] },{ Medium1,BG[1][5] },{ Medium1,BG[1][6] },{ Medium1,BG[1][7] },{ Medium1,BG[1][8] },{ Medium1,BG[1][9] },{ Medium1,BG[1][10] } },
 	{ { Small,BG[2][0] },{ Small,BG[2][1] },{ Small,BG[2][2] },{ Small,BG[2][3] },{ Small,BG[2][4] },{ Small,BG[2][5] },{ Small,BG[2][6] },{ Small,BG[2][7] },{ Small,BG[2][8] },{ Small,BG[2][9] },{ Small,BG[2][10] } },
 	{ { Pixel,BG[3][0] },{ Pixel,BG[3][1] },{ Pixel,BG[3][2] },{ Pixel,BG[3][3] },{ Pixel,BG[3][4] },{ Pixel,BG[3][5] },{ Pixel,BG[3][6] },{ Pixel,BG[3][7] },{ Pixel,BG[3][8] },{ Pixel,BG[3][9] },{ Pixel,BG[3][10] } },
 	{ { Uroko,BG[4][0] },{ Uroko,BG[4][1] },{ Uroko,BG[4][2] },{ Uroko,BG[4][3] },{ Uroko,BG[4][4] },{ Uroko,BG[4][5] },{ Uroko,BG[4][6] },{ Uroko,BG[4][7] },{ Uroko,BG[4][8] },{ Uroko,BG[4][9] },{ Uroko,BG[4][10] } },
@@ -26,5 +25,7 @@ BULLET BulletData[Tn][Cn] = {
 	{ { Knife,BG[19][0] },{ Knife,BG[19][1] },{ Knife,BG[19][2] },{ Knife,BG[19][3] },{ Knife,BG[19][4] },{ Knife,BG[19][5] },{ Knife,BG[19][6] },{ Knife,BG[19][7] },{ Knife,BG[19][8] },{ Knife,BG[19][9] },{ Knife,BG[19][10] } },
 	{ { Heart,BG[20][0] },{ Heart,BG[20][1] },{ Heart,BG[20][2] },{ Heart,BG[20][3] },{ Heart,BG[20][4] },{ Heart,BG[20][5] },{ Heart,BG[20][6] },{ Heart,BG[20][7] },{ Heart,BG[20][8] },{ Heart,BG[20][9] },{ Heart,BG[20][10] } },
 	{ { Bara,BG[21][0] },{ Bara,BG[21][1] },{ Bara,BG[21][2] },{ Bara,BG[21][3] },{ Bara,BG[21][4] },{ Bara,BG[21][5] },{ Bara,BG[21][6] },{ Bara,BG[21][7] },{ Bara,BG[21][8] },{ Bara,BG[21][9] },{ Bara,BG[21][10] } },
-	{ { Huda,BG[22][0] },{ Huda,BG[22][1] },{ Huda,BG[22][2] },{ Huda,BG[22][3] },{ Huda,BG[22][4] },{ Huda,BG[22][5] },{ Huda,BG[22][6] },{ Huda,BG[22][7] },{ Huda,BG[22][8] },{ Huda,BG[22][9] },{ Huda,BG[22][10] } }
+	{ { Huda,BG[22][0] },{ Huda,BG[22][1] },{ Huda,BG[22][2] },{ Huda,BG[22][3] },{ Huda,BG[22][4] },{ Huda,BG[22][5] },{ Huda,BG[22][6] },{ Huda,BG[22][7] },{ Huda,BG[22][8] },{ Huda,BG[22][9] },{ Huda,BG[22][10] } },
+	{ { Medium2,BG[23][0] },{ Medium2,BG[23][1] },{ Medium2,BG[23][2] },{ Medium2,BG[23][3] },{ Medium2,BG[23][4] },{ Medium2,BG[23][5] },{ Medium2,BG[23][6] },{ Medium2,BG[23][7] },{ Medium2,BG[23][8] },{ Medium2,BG[23][9] },{ Medium2,BG[23][10] } },
+	{ { Medium3,BG[24][0] },{ Medium3,BG[24][1] },{ Medium3,BG[24][2] },{ Medium3,BG[24][3] },{ Medium3,BG[24][4] },{ Medium3,BG[24][5] },{ Medium3,BG[24][6] },{ Medium3,BG[24][7] },{ Medium3,BG[24][8] },{ Medium3,BG[24][9] },{ Medium3,BG[24][10] } }
 };

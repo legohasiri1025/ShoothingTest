@@ -1,10 +1,13 @@
 #ifndef _BULLET_
 #define _BULLET_
 #include "define.h"
+
+void LoadBullet();
+
 enum _Color {
 	BLUE,
 	RED,
-	YERROW,
+	YELLOW,
 	BLACK,
 	WHITE,
 	GREEN,
@@ -16,9 +19,11 @@ enum _Color {
 	Cn = 11
 };//11
 
-enum _Type {
+enum _Size {
 	Big = 22,
-	Medium = 7,
+	Medium1 = 7,
+	Medium2 = 7,
+	Medium3 = 7,
 	Small = 3,
 	Pixel = 2,
 	Uroko = 3,
@@ -40,12 +45,12 @@ enum _Type {
 	Heart = 7,
 	Bara = 20,
 	Huda = 2,
-	Tn = 23
-};//23
+	Tn = 25
+};//25
 
 enum Type {
 	Big_,
-	Medium_,
+	Medium1_,
 	Small_,
 	Pixel_,
 	Uroko_,
@@ -57,7 +62,7 @@ enum Type {
 	Daen_,
 	Arrow_,
 	Laser_,
-	Ikar_,
+	Ikari_,
 	Fire_,
 	Nuclear_,
 	Genkotu_,
@@ -67,10 +72,15 @@ enum Type {
 	Heart_,
 	Bara_,
 	Huda_,
-};//23
+	Medium2_,
+	Medium3_,
+	Tn_
+};//25
+
+extern Graph_  BG[Tn][Cn];
 
 typedef struct _bullet {
-	_Type size;
+	_Size size;
 	Graph_ graph;
 }BULLET;
 

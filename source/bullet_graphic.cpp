@@ -1,3 +1,316 @@
-#include "DxLib.h"
 #include "bullet.h"
+#include "DxLib.h"
 
+Graph_ BG[Tn][Cn];
+
+void LoadGraphRED() {
+	BG[Big_][RED] = LoadGraph("../bullet/red/1.png");
+	BG[Medium1_][RED] = LoadGraph("../bullet/red/2.png");
+	BG[Medium2_][RED] = LoadGraph("../bullet/red/3.png");
+	BG[Medium3_][RED] = LoadGraph("../bullet/red/4.png");
+	BG[Small_][RED] = LoadGraph("../bullet/red/5.png");
+	BG[Pixel_][RED] = LoadGraph("../bullet/red/6.png");
+	BG[Uroko_][RED] = LoadGraph("../bullet/red/7.png");
+	BG[Kunai_][RED] = LoadGraph("../bullet/red/8.png");
+	BG[Rice_][RED] = LoadGraph("../bullet/red/9.png");
+	BG[Zayaku_][RED] = LoadGraph("../bullet/red/10.png");
+	BG[Bullet_][RED] = LoadGraph("../bullet/red/11.png");
+	BG[Suiteki_][RED] = LoadGraph("../bullet/red/12.png");
+	BG[Daen_][RED] = LoadGraph("../bullet/red/13.png");
+	BG[Arrow_][RED] = LoadGraph("../bullet/red/14.png");
+	BG[Laser_][RED] = LoadGraph("../bullet/red/15.png");
+	BG[Ikari_][RED] = LoadGraph("../bullet/red/16.png");
+	BG[Fire_][RED] = LoadGraph("../bullet/red/17.png");
+	BG[Nuclear_][RED] = LoadGraph("../bullet/red/18.png");
+	BG[Genkotu_][RED] = LoadGraph("../bullet/red/19.png");
+	BG[Star_][RED] = LoadGraph("../bullet/red/20.png");
+	BG[Butterfly_][RED] = LoadGraph("../bullet/red/21.png");
+	BG[Knife_][RED] = LoadGraph("../bullet/red/22.png");
+	BG[Heart_][RED] = LoadGraph("../bullet/red/23.png");
+	BG[Bara_][RED] = LoadGraph("../bullet/red/24.png");
+	BG[Huda_][RED] = LoadGraph("../bullet/red/25.png");
+}
+void LoadGraphBLUE() {
+	BG[Big_][BLUE] = LoadGraph("../bullet/blue/1.png");
+	BG[Medium1_][BLUE] = LoadGraph("../bullet/blue/2.png");
+	BG[Medium2_][BLUE] = LoadGraph("../bullet/blue/3.png");
+	BG[Medium3_][BLUE] = LoadGraph("../bullet/blue/4.png");
+	BG[Small_][BLUE] = LoadGraph("../bullet/blue/5.png");
+	BG[Pixel_][BLUE] = LoadGraph("../bullet/blue/6.png");
+	BG[Uroko_][BLUE] = LoadGraph("../bullet/blue/7.png");
+	BG[Kunai_][BLUE] = LoadGraph("../bullet/blue/8.png");
+	BG[Rice_][BLUE] = LoadGraph("../bullet/blue/9.png");
+	BG[Zayaku_][BLUE] = LoadGraph("../bullet/blue/10.png");
+	BG[Bullet_][BLUE] = LoadGraph("../bullet/blue/11.png");
+	BG[Suiteki_][BLUE] = LoadGraph("../bullet/blue/12.png");
+	BG[Daen_][BLUE] = LoadGraph("../bullet/blue/13.png");
+	BG[Arrow_][BLUE] = LoadGraph("../bullet/blue/14.png");
+	BG[Laser_][BLUE] = LoadGraph("../bullet/blue/15.png");
+	BG[Ikari_][BLUE] = LoadGraph("../bullet/blue/16.png");
+	BG[Fire_][BLUE] = LoadGraph("../bullet/blue/17.png");
+	BG[Nuclear_][BLUE] = LoadGraph("../bullet/blue/18.png");
+	BG[Genkotu_][BLUE] = LoadGraph("../bullet/blue/19.png");
+	BG[Star_][BLUE] = LoadGraph("../bullet/blue/20.png");
+	BG[Butterfly_][BLUE] = LoadGraph("../bullet/blue/21.png");
+	BG[Knife_][BLUE] = LoadGraph("../bullet/blue/22.png");
+	BG[Heart_][BLUE] = LoadGraph("../bullet/blue/23.png");
+	BG[Bara_][BLUE] = LoadGraph("../bullet/blue/24.png");
+	BG[Huda_][BLUE] = LoadGraph("../bullet/blue/25.png");
+}
+void LoadGraphYELLOW() {
+	BG[Big_][YELLOW] = LoadGraph("../bullet/yellow/1.png");
+	BG[Medium1_][YELLOW] = LoadGraph("../bullet/yellow/2.png");
+	BG[Medium2_][YELLOW] = LoadGraph("../bullet/yellow/3.png");
+	BG[Medium3_][YELLOW] = LoadGraph("../bullet/yellow/4.png");
+	BG[Small_][YELLOW] = LoadGraph("../bullet/yellow/5.png");
+	BG[Pixel_][YELLOW] = LoadGraph("../bullet/yellow/6.png");
+	BG[Uroko_][YELLOW] = LoadGraph("../bullet/yellow/7.png");
+	BG[Kunai_][YELLOW] = LoadGraph("../bullet/yellow/8.png");
+	BG[Rice_][YELLOW] = LoadGraph("../bullet/yellow/9.png");
+	BG[Zayaku_][YELLOW] = LoadGraph("../bullet/yellow/10.png");
+	BG[Bullet_][YELLOW] = LoadGraph("../bullet/yellow/11.png");
+	BG[Suiteki_][YELLOW] = LoadGraph("../bullet/yellow/12.png");
+	BG[Daen_][YELLOW] = LoadGraph("../bullet/yellow/13.png");
+	BG[Arrow_][YELLOW] = LoadGraph("../bullet/yellow/14.png");
+	BG[Laser_][YELLOW] = LoadGraph("../bullet/yellow/15.png");
+	BG[Ikari_][YELLOW] = LoadGraph("../bullet/yellow/16.png");
+	BG[Fire_][YELLOW] = LoadGraph("../bullet/yellow/17.png");
+	BG[Nuclear_][YELLOW] = LoadGraph("../bullet/yellow/18.png");
+	BG[Genkotu_][YELLOW] = LoadGraph("../bullet/yellow/19.png");
+	BG[Star_][YELLOW] = LoadGraph("../bullet/yellow/20.png");
+	BG[Butterfly_][YELLOW] = LoadGraph("../bullet/yellow/21.png");
+	BG[Knife_][YELLOW] = LoadGraph("../bullet/yellow/22.png");
+	BG[Heart_][YELLOW] = LoadGraph("../bullet/yellow/23.png");
+	BG[Bara_][YELLOW] = LoadGraph("../bullet/yellow/24.png");
+	BG[Huda_][YELLOW] = LoadGraph("../bullet/yellow/25.png");
+}
+void LoadGraphBLACK() {
+	BG[Big_][BLACK] = LoadGraph("../bullet/black/1.png");
+	BG[Medium1_][BLACK] = LoadGraph("../bullet/black/2.png");
+	BG[Medium2_][BLACK] = LoadGraph("../bullet/black/3.png");
+	BG[Medium3_][BLACK] = LoadGraph("../bullet/black/4.png");
+	BG[Small_][BLACK] = LoadGraph("../bullet/black/5.png");
+	BG[Pixel_][BLACK] = LoadGraph("../bullet/black/6.png");
+	BG[Uroko_][BLACK] = LoadGraph("../bullet/black/7.png");
+	BG[Kunai_][BLACK] = LoadGraph("../bullet/black/8.png");
+	BG[Rice_][BLACK] = LoadGraph("../bullet/black/9.png");
+	BG[Zayaku_][BLACK] = LoadGraph("../bullet/black/10.png");
+	BG[Bullet_][BLACK] = LoadGraph("../bullet/black/11.png");
+	BG[Suiteki_][BLACK] = LoadGraph("../bullet/black/12.png");
+	BG[Daen_][BLACK] = LoadGraph("../bullet/black/13.png");
+	BG[Arrow_][BLACK] = LoadGraph("../bullet/black/14.png");
+	BG[Laser_][BLACK] = LoadGraph("../bullet/black/15.png");
+	BG[Ikari_][BLACK] = LoadGraph("../bullet/black/16.png");
+	BG[Fire_][BLACK] = LoadGraph("../bullet/black/17.png");
+	BG[Nuclear_][BLACK] = LoadGraph("../bullet/black/18.png");
+	BG[Genkotu_][BLACK] = LoadGraph("../bullet/black/19.png");
+	BG[Star_][BLACK] = LoadGraph("../bullet/black/20.png");
+	BG[Butterfly_][BLACK] = LoadGraph("../bullet/black/21.png");
+	BG[Knife_][BLACK] = LoadGraph("../bullet/black/22.png");
+	BG[Heart_][BLACK] = LoadGraph("../bullet/black/23.png");
+	BG[Bara_][BLACK] = LoadGraph("../bullet/black/24.png");
+	BG[Huda_][BLACK] = LoadGraph("../bullet/black/25.png");
+}
+void LoadGraphWHITE() {
+	BG[Big_][WHITE] = LoadGraph("../bullet/white/1.png");
+	BG[Medium1_][WHITE] = LoadGraph("../bullet/white/2.png");
+	BG[Medium2_][WHITE] = LoadGraph("../bullet/white/3.png");
+	BG[Medium3_][WHITE] = LoadGraph("../bullet/white/4.png");
+	BG[Small_][WHITE] = LoadGraph("../bullet/white/5.png");
+	BG[Pixel_][WHITE] = LoadGraph("../bullet/white/6.png");
+	BG[Uroko_][WHITE] = LoadGraph("../bullet/white/7.png");
+	BG[Kunai_][WHITE] = LoadGraph("../bullet/white/8.png");
+	BG[Rice_][WHITE] = LoadGraph("../bullet/white/9.png");
+	BG[Zayaku_][WHITE] = LoadGraph("../bullet/white/10.png");
+	BG[Bullet_][WHITE] = LoadGraph("../bullet/white/11.png");
+	BG[Suiteki_][WHITE] = LoadGraph("../bullet/white/12.png");
+	BG[Daen_][WHITE] = LoadGraph("../bullet/white/13.png");
+	BG[Arrow_][WHITE] = LoadGraph("../bullet/white/14.png");
+	BG[Laser_][WHITE] = LoadGraph("../bullet/white/15.png");
+	BG[Ikari_][WHITE] = LoadGraph("../bullet/white/16.png");
+	BG[Fire_][WHITE] = LoadGraph("../bullet/white/17.png");
+	BG[Nuclear_][WHITE] = LoadGraph("../bullet/white/18.png");
+	BG[Genkotu_][WHITE] = LoadGraph("../bullet/white/19.png");
+	BG[Star_][WHITE] = LoadGraph("../bullet/white/20.png");
+	BG[Butterfly_][WHITE] = LoadGraph("../bullet/white/21.png");
+	BG[Knife_][WHITE] = LoadGraph("../bullet/white/22.png");
+	BG[Heart_][WHITE] = LoadGraph("../bullet/white/23.png");
+	BG[Bara_][WHITE] = LoadGraph("../bullet/white/24.png");
+	BG[Huda_][WHITE] = LoadGraph("../bullet/white/25.png");
+}
+void LoadGraphGREEN() {
+	BG[Big_][GREEN] = LoadGraph("../bullet/green/1.png");
+	BG[Medium1_][GREEN] = LoadGraph("../bullet/green/2.png");
+	BG[Medium2_][GREEN] = LoadGraph("../bullet/green/3.png");
+	BG[Medium3_][GREEN] = LoadGraph("../bullet/green/4.png");
+	BG[Small_][GREEN] = LoadGraph("../bullet/green/5.png");
+	BG[Pixel_][GREEN] = LoadGraph("../bullet/green/6.png");
+	BG[Uroko_][GREEN] = LoadGraph("../bullet/green/7.png");
+	BG[Kunai_][GREEN] = LoadGraph("../bullet/green/8.png");
+	BG[Rice_][GREEN] = LoadGraph("../bullet/green/9.png");
+	BG[Zayaku_][GREEN] = LoadGraph("../bullet/green/10.png");
+	BG[Bullet_][GREEN] = LoadGraph("../bullet/green/11.png");
+	BG[Suiteki_][GREEN] = LoadGraph("../bullet/green/12.png");
+	BG[Daen_][GREEN] = LoadGraph("../bullet/green/13.png");
+	BG[Arrow_][GREEN] = LoadGraph("../bullet/green/14.png");
+	BG[Laser_][GREEN] = LoadGraph("../bullet/green/15.png");
+	BG[Ikari_][GREEN] = LoadGraph("../bullet/green/16.png");
+	BG[Fire_][GREEN] = LoadGraph("../bullet/green/17.png");
+	BG[Nuclear_][GREEN] = LoadGraph("../bullet/green/18.png");
+	BG[Genkotu_][GREEN] = LoadGraph("../bullet/green/19.png");
+	BG[Star_][GREEN] = LoadGraph("../bullet/green/20.png");
+	BG[Butterfly_][GREEN] = LoadGraph("../bullet/green/21.png");
+	BG[Knife_][GREEN] = LoadGraph("../bullet/green/22.png");
+	BG[Heart_][GREEN] = LoadGraph("../bullet/green/23.png");
+	BG[Bara_][GREEN] = LoadGraph("../bullet/green/24.png");
+	BG[Huda_][GREEN] = LoadGraph("../bullet/green/25.png");
+}
+void LoadGraphPINK() {
+	BG[Big_][PINK] = LoadGraph("../bullet/pink/1.png");
+	BG[Medium1_][PINK] = LoadGraph("../bullet/pink/2.png");
+	BG[Medium2_][PINK] = LoadGraph("../bullet/pink/3.png");
+	BG[Medium3_][PINK] = LoadGraph("../bullet/pink/4.png");
+	BG[Small_][PINK] = LoadGraph("../bullet/pink/5.png");
+	BG[Pixel_][PINK] = LoadGraph("../bullet/pink/6.png");
+	BG[Uroko_][PINK] = LoadGraph("../bullet/pink/7.png");
+	BG[Kunai_][PINK] = LoadGraph("../bullet/pink/8.png");
+	BG[Rice_][PINK] = LoadGraph("../bullet/pink/9.png");
+	BG[Zayaku_][PINK] = LoadGraph("../bullet/pink/10.png");
+	BG[Bullet_][PINK] = LoadGraph("../bullet/pink/11.png");
+	BG[Suiteki_][PINK] = LoadGraph("../bullet/pink/12.png");
+	BG[Daen_][PINK] = LoadGraph("../bullet/pink/13.png");
+	BG[Arrow_][PINK] = LoadGraph("../bullet/pink/14.png");
+	BG[Laser_][PINK] = LoadGraph("../bullet/pink/15.png");
+	BG[Ikari_][PINK] = LoadGraph("../bullet/pink/16.png");
+	BG[Fire_][PINK] = LoadGraph("../bullet/pink/17.png");
+	BG[Nuclear_][PINK] = LoadGraph("../bullet/pink/18.png");
+	BG[Genkotu_][PINK] = LoadGraph("../bullet/pink/19.png");
+	BG[Star_][PINK] = LoadGraph("../bullet/pink/20.png");
+	BG[Butterfly_][PINK] = LoadGraph("../bullet/pink/21.png");
+	BG[Knife_][PINK] = LoadGraph("../bullet/pink/22.png");
+	BG[Heart_][PINK] = LoadGraph("../bullet/pink/23.png");
+	BG[Bara_][PINK] = LoadGraph("../bullet/pink/24.png");
+	BG[Huda_][PINK] = LoadGraph("../bullet/pink/25.png");
+}
+void LoadGraphWHITE_BLUE() {
+	BG[Big_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/1.png");
+	BG[Medium1_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/2.png");
+	BG[Medium2_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/3.png");
+	BG[Medium3_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/4.png");
+	BG[Small_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/5.png");
+	BG[Pixel_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/6.png");
+	BG[Uroko_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/7.png");
+	BG[Kunai_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/8.png");
+	BG[Rice_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/9.png");
+	BG[Zayaku_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/10.png");
+	BG[Bullet_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/11.png");
+	BG[Suiteki_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/12.png");
+	BG[Daen_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/13.png");
+	BG[Arrow_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/14.png");
+	BG[Laser_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/15.png");
+	BG[Ikari_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/16.png");
+	BG[Fire_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/17.png");
+	BG[Nuclear_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/18.png");
+	BG[Genkotu_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/19.png");
+	BG[Star_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/20.png");
+	BG[Butterfly_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/21.png");
+	BG[Knife_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/22.png");
+	BG[Heart_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/23.png");
+	BG[Bara_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/24.png");
+	BG[Huda_][WHITE_BLUE] = LoadGraph("../bullet/white_blue/25.png");
+}
+void LoadGraphYELLOE_GREEN() {
+	BG[Big_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/1.png");
+	BG[Medium1_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/2.png");
+	BG[Medium2_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/3.png");
+	BG[Medium3_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/4.png");
+	BG[Small_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/5.png");
+	BG[Pixel_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/6.png");
+	BG[Uroko_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/7.png");
+	BG[Kunai_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/8.png");
+	BG[Rice_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/9.png");
+	BG[Zayaku_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/10.png");
+	BG[Bullet_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/11.png");
+	BG[Suiteki_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/12.png");
+	BG[Daen_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/13.png");
+	BG[Arrow_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/14.png");
+	BG[Laser_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/15.png");
+	BG[Ikari_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/16.png");
+	BG[Fire_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/17.png");
+	BG[Nuclear_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/18.png");
+	BG[Genkotu_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/19.png");
+	BG[Star_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/20.png");
+	BG[Butterfly_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/21.png");
+	BG[Knife_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/22.png");
+	BG[Heart_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/23.png");
+	BG[Bara_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/24.png");
+	BG[Huda_][YELLOW_GREEN] = LoadGraph("../bullet/yellow_green/25.png");
+}
+void LoadGraphPURPLE() {
+	BG[Big_][PURPLE] = LoadGraph("../bullet/purple/1.png");
+	BG[Medium1_][PURPLE] = LoadGraph("../bullet/purple/2.png");
+	BG[Medium2_][PURPLE] = LoadGraph("../bullet/purple/3.png");
+	BG[Medium3_][PURPLE] = LoadGraph("../bullet/purple/4.png");
+	BG[Small_][PURPLE] = LoadGraph("../bullet/purple/5.png");
+	BG[Pixel_][PURPLE] = LoadGraph("../bullet/purple/6.png");
+	BG[Uroko_][PURPLE] = LoadGraph("../bullet/purple/7.png");
+	BG[Kunai_][PURPLE] = LoadGraph("../bullet/purple/8.png");
+	BG[Rice_][PURPLE] = LoadGraph("../bullet/purple/9.png");
+	BG[Zayaku_][PURPLE] = LoadGraph("../bullet/purple/10.png");
+	BG[Bullet_][PURPLE] = LoadGraph("../bullet/purple/11.png");
+	BG[Suiteki_][PURPLE] = LoadGraph("../bullet/purple/12.png");
+	BG[Daen_][PURPLE] = LoadGraph("../bullet/purple/13.png");
+	BG[Arrow_][PURPLE] = LoadGraph("../bullet/purple/14.png");
+	BG[Laser_][PURPLE] = LoadGraph("../bullet/purple/15.png");
+	BG[Ikari_][PURPLE] = LoadGraph("../bullet/purple/16.png");
+	BG[Fire_][PURPLE] = LoadGraph("../bullet/purple/17.png");
+	BG[Nuclear_][PURPLE] = LoadGraph("../bullet/purple/18.png");
+	BG[Genkotu_][PURPLE] = LoadGraph("../bullet/purple/19.png");
+	BG[Star_][PURPLE] = LoadGraph("../bullet/purple/20.png");
+	BG[Butterfly_][PURPLE] = LoadGraph("../bullet/purple/21.png");
+	BG[Knife_][PURPLE] = LoadGraph("../bullet/purple/22.png");
+	BG[Heart_][PURPLE] = LoadGraph("../bullet/purple/23.png");
+	BG[Bara_][PURPLE] = LoadGraph("../bullet/purple/24.png");
+	BG[Huda_][PURPLE] = LoadGraph("../bullet/purple/25.png");
+}
+void LoadGraphORANGE() {
+	BG[Big_][ORANGE] = LoadGraph("../bullet/orange/1.png");
+	BG[Medium1_][ORANGE] = LoadGraph("../bullet/orange/2.png");
+	BG[Medium2_][ORANGE] = LoadGraph("../bullet/orange/3.png");
+	BG[Medium3_][ORANGE] = LoadGraph("../bullet/orange/4.png");
+	BG[Small_][ORANGE] = LoadGraph("../bullet/orange/5.png");
+	BG[Pixel_][ORANGE] = LoadGraph("../bullet/orange/6.png");
+	BG[Uroko_][ORANGE] = LoadGraph("../bullet/orange/7.png");
+	BG[Kunai_][ORANGE] = LoadGraph("../bullet/orange/8.png");
+	BG[Rice_][ORANGE] = LoadGraph("../bullet/orange/9.png");
+	BG[Zayaku_][ORANGE] = LoadGraph("../bullet/orange/10.png");
+	BG[Bullet_][ORANGE] = LoadGraph("../bullet/orange/11.png");
+	BG[Suiteki_][ORANGE] = LoadGraph("../bullet/orange/12.png");
+	BG[Daen_][ORANGE] = LoadGraph("../bullet/orange/13.png");
+	BG[Arrow_][ORANGE] = LoadGraph("../bullet/orange/14.png");
+	BG[Laser_][ORANGE] = LoadGraph("../bullet/orange/15.png");
+	BG[Ikari_][ORANGE] = LoadGraph("../bullet/orange/16.png");
+	BG[Fire_][ORANGE] = LoadGraph("../bullet/orange/17.png");
+	BG[Nuclear_][ORANGE] = LoadGraph("../bullet/orange/18.png");
+	BG[Genkotu_][ORANGE] = LoadGraph("../bullet/orange/19.png");
+	BG[Star_][ORANGE] = LoadGraph("../bullet/orange/20.png");
+	BG[Butterfly_][ORANGE] = LoadGraph("../bullet/orange/21.png");
+	BG[Knife_][ORANGE] = LoadGraph("../bullet/orange/22.png");
+	BG[Heart_][ORANGE] = LoadGraph("../bullet/orange/23.png");
+	BG[Bara_][ORANGE] = LoadGraph("../bullet/orange/24.png");
+	BG[Huda_][ORANGE] = LoadGraph("../bullet/orange/25.png");
+}
+
+void LoadBullet() {
+	LoadGraphRED();
+	LoadGraphBLUE();
+	LoadGraphYELLOW();
+	LoadGraphBLACK();
+	LoadGraphWHITE();
+	LoadGraphGREEN();
+	LoadGraphPINK();
+	LoadGraphWHITE_BLUE();
+	LoadGraphYELLOE_GREEN();
+	LoadGraphPURPLE();
+	LoadGraphORANGE();
+}

@@ -18,6 +18,23 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\bullet.cpp" />
+    <ClCompile Include="source\bullet_graphic.cpp" />
+    <ClCompile Include="source\front.cpp" />
+    <ClCompile Include="source\func.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\player01.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\bullet.h" />
+    <ClInclude Include="source\class_admin.h" />
+    <ClInclude Include="source\define.h" />
+    <ClInclude Include="source\front.h" />
+    <ClInclude Include="source\func.h" />
+    <ClInclude Include="source\player.h" />
+    <ClInclude Include="source\player01.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4A84C566-2CAD-4BBC-90ED-1C055ACE2911}</ProjectGuid>
@@ -119,23 +136,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\define.h" />
-    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\front.h" />
-    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\func.h" />
-    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\player.h" />
-    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\player01.h" />
-    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\bullet.h" />
-    <ClInclude Include="..\..\Test_Actiongame\ShootingTest\Test\class_admin.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\bullet.cpp" />
-    <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\Bullet_graphic.cpp" />
-    <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\front.cpp" />
-    <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\func.cpp" />
-    <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\main.cpp" />
-    <ClCompile Include="..\..\Test_Actiongame\ShootingTest\Test\player01.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

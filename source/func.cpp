@@ -33,11 +33,11 @@ typedef struct _player {
 
 PLAYER Player;
 ENEMY Enemy[ENEMY_MAX];
-ENEMY_SHOT Enemy_shot[MAX_SHOT];
+ENEMY_SHOT Enemy_shot[E_MAX_SHOT];
 
 double Rand(double min, double max) {
-	SRand(GetNowCount()*PI);//乱数初期値の設定
-	return GetRand(max - min) + min;
+	(double)SRand(GetNowCount()*PI);//乱数初期値の設定
+	return (double)GetRand(max - min) + min;
 }
 
 int GetPlayerX() {
@@ -60,11 +60,11 @@ int GetEnemyLife(int i) {
 	return Enemy[i].life;
 }
 
-void SetPlayerX(int x) {
+void SetPlayerX(Point_ x) {
 	Player.x = x;
 }
 
-void SetPlayerY(int y) {
+void SetPlayerY(Point_ y) {
 	Player.x = y;
 }
 
@@ -79,11 +79,11 @@ double GetAngleEnemyToPlayer(int i) {
 	return atan2((double)(Player.y - Enemy[i].y), (double)(Player.x - Enemy[i].x));
 }
 
-double GetAngle(int ax, int ay, int bx, int by) {
+double GetAngle(Point_ ax, Point_ ay, Point_ bx, Point_ by) {
 	return atan2((double)(ay - by), (double)(ax - bx));
 }
 
-void DrawPlayer(int x, int y, Graph_ graph){
+void DrawPlayer(Point_ x, Point_ y, Graph_ graph){
 	DrawRotaGraph(x, y, 1, 0, graph, TRUE);
 }
 
@@ -95,17 +95,17 @@ void Wait(Count_ count) {
 int EnemyShotNum = 0;
 
 
-void Shot(int x, int y, _Color color, Type type, double angle, double speed) {
+void Shot(Point_ x, Point_ y, _Color color, Type type, double angle, double speed) {
 	ShotFlag(x, y, color, type, angle, speed);
 	FireShot();
 }
 
-int	ShotFlag(int x, int y, _Color color, Type type, double angle, double speed) {
+int	ShotFlag(Point_ x, Point_ y, _Color color, Type type, double angle, double speed) {
 		int i;
-		for (i = 0; i < MAX_SHOT; i++)
+		for (i = 0; i < E_MAX_SHOT; i++)
 			if (!Enemy_shot[i].flag)
 				break;
-		if (i == MAX_SHOT)
+		if (i == E_MAX_SHOT)
 			return -1;
 
 
@@ -130,7 +130,7 @@ void FireShot() {
 		// 弾の数だけ移動処理を繰り返す
 		Con = 0;
 		Num = EnemyShotNum;
-		for (i = 0; i < MAX_SHOT; i++)
+		for (i = 0; i < E_MAX_SHOT; i++)
 		{
 			// 弾のデータが有効な場合は処理
 			if (Enemy_shot[i].flag)
@@ -172,8 +172,8 @@ void FireShot() {
 	}
 
 
-void CreateShot01(int x, int y, double speed, double angle, _Color color, Type type, Count_ late = 0) {
-	int count = 0;
+void CreateShot01(Point_ x, Point_ y, double speed, double angle, _Color color, Type type, Count_ late = 0) {
+	Count_ count = 0;
 	Shot(x, y, color, type, angle, speed);
 	if (count >= late) {
 
@@ -181,7 +181,7 @@ void CreateShot01(int x, int y, double speed, double angle, _Color color, Type t
 	count++;
 }
 
-void CreateShot02(int x, int y, double speed, double angle, double acceleration, double max_speed, _Color color, Type type, Count_ late = 0) {
+void CreateShot02(Point_ x, Point_ y, double speed, double angle, double acceleration, double max_speed, _Color color, Type type, Count_ late = 0) {
 
 }
 
