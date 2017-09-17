@@ -5,8 +5,8 @@
 #include "DxLib.h"
 
 player::player() {
-	x = FIELD_CENTER_X;
-	y = FIELD_MAX_Y - 60;
+	x = 228;
+	y = 405;
 	bomb = DEFAULT_BOMB;
 	player_num = DEFAULT_PLAYER;
 	power = 1.00;
@@ -25,6 +25,7 @@ player::player() {
 	slow = false;
 	graphic[24] = 0;
 	LoadDivGraph("../player/player01/player.png", 24, 8, 3, 32, 48, graphic);
+	slow_effe = LoadGraph("../player/slow-eff.png");
 }
 
 void player::move() {
@@ -33,7 +34,7 @@ void player::move() {
 		x = FIELD_MIN_X + 32;
 	}
 	if (x >= FIELD_MAX_X - 32) {
-		x = FIELD_MAX_X + 32;
+		x = FIELD_MAX_X - 32;
 	}
 	if (y <= FIELD_MIN_Y + 32) {
 		y = FIELD_MIN_Y + 32;
@@ -212,6 +213,10 @@ void player::draw() {
 	}
 	
 	DrawRotaGraph(x, y, 1, 0, graphic[j], TRUE);
+	if (slow) {
+		i++;
+		DrawRotaGraph(x, y, 1, i * 2, slow_effe, TRUE);
+	}
 	//DrawPixel(x, y, GetColor(255, 255, 255));
 	DrawFormatString(0, 0, RGB(255, 255, 255), "[%d],[%d]", j, count1);
 	DrawFormatString(0, 20, RGB(255, 255, 255), "[%d],[%d]", x, y);
@@ -289,8 +294,7 @@ void shot::mainshot2() {
 	for (int i = 0; i < P_MAX_SHOT; i++) {
 		if (p_shot[i][1]) {
 			sy[i][1] -= shotspeed;
-			if (sx[i][1] > FIELD_MAX_X || sx[i][1] < FIELD_MIN_X
-				|| sy[i][1] < FIELD_MIN_Y || sy[i][1] > FIELD_MAX_Y) {
+			if (sy[i][1] > 0) {
 				p_shot[i][1] = false;
 			}
 			DrawRotaGraph(sx[i][1], sy[i][1], 1, PI / 2, mainshotgr, TRUE);

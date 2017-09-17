@@ -17,11 +17,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		//DrawBox(FIELD_MIN_X, FIELD_MIN_Y, FIELD_MAX_X, FIELD_MAX_Y, RGB(0, 255, 0), TRUE);
 
-		front.draw();
 		reimutest.move();
 		reimutest.draw();
 		reimushot.mainshot1();
 		reimushot.mainshot2();
+		front.draw();
 	}
 	// ＤＸライブラリの使用終了
 	DxLib_End();

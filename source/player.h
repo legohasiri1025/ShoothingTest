@@ -12,6 +12,7 @@ protected:
 	double power;
 	unsigned int point;
 	Graph_ graphic[24];
+	Graph_ slow_effe;
 	Point_ x;
 	Point_ y;
 	Count_ count1;
