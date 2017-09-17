@@ -4,7 +4,7 @@
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 	ChangeWindowMode(TRUE);
-	SetMainWindowText("ShootingTest");
+	SetMainWindowText("“Œ•û{_“``The Pecten Maiden.  Ver.ƒÀ");
 	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»
 	if (DxLib_Init() == -1) return -1;
 

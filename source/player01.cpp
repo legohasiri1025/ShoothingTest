@@ -6,7 +6,7 @@
 
 player::player() {
 	x = FIELD_CENTER_X;
-	y = FIELD_MAX_Y - 80;
+	y = FIELD_MAX_Y - 60;
 	bomb = DEFAULT_BOMB;
 	player_num = DEFAULT_PLAYER;
 	power = 1.00;
@@ -29,17 +29,17 @@ player::player() {
 
 void player::move() {
 
-	if (x <= FIELD_MIN_X) {
-		x = FIELD_MIN_X;
+	if (x <= FIELD_MIN_X + 32) {
+		x = FIELD_MIN_X + 32;
 	}
-	if (x >= FIELD_MAX_X) {
-		x = FIELD_MAX_X;
+	if (x >= FIELD_MAX_X - 32) {
+		x = FIELD_MAX_X + 32;
 	}
-	if (y <= FIELD_MIN_Y) {
-		y = FIELD_MIN_Y;
+	if (y <= FIELD_MIN_Y + 32) {
+		y = FIELD_MIN_Y + 32;
 	}
-	if (y >= FIELD_MAX_Y) {
-		y = FIELD_MAX_Y;
+	if (y >= FIELD_MAX_Y - 32) {
+		y = FIELD_MAX_Y - 32;
 	}
 
 
@@ -212,7 +212,7 @@ void player::draw() {
 	}
 	
 	DrawRotaGraph(x, y, 1, 0, graphic[j], TRUE);
-	DrawPixel(x, y, GetColor(255, 255, 255));
+	//DrawPixel(x, y, GetColor(255, 255, 255));
 	DrawFormatString(0, 0, RGB(255, 255, 255), "[%d],[%d]", j, count1);
 	DrawFormatString(0, 20, RGB(255, 255, 255), "[%d],[%d]", x, y);
 }

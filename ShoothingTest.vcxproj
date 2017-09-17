@@ -27,6 +27,7 @@
     <ClCompile Include="source\player01.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="source\bullet.h" />
     <ClInclude Include="source\class_admin.h" />
     <ClInclude Include="source\define.h" />
@@ -34,6 +35,12 @@
     <ClInclude Include="source\func.h" />
     <ClInclude Include="source\player.h" />
     <ClInclude Include="source\player01.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ST_01.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
