@@ -29,7 +29,6 @@
   <ItemGroup>
     <ClInclude Include="resource.h" />
     <ClInclude Include="source\bullet.h" />
-    <ClInclude Include="source\class_admin.h" />
     <ClInclude Include="source\define.h" />
     <ClInclude Include="source\front.h" />
     <ClInclude Include="source\func.h" />

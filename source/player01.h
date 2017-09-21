@@ -13,6 +13,7 @@ define SHOTSPEED = 40;
 define SUBSHOTSPEED = 35;
 define_d POWER = 5;
 define_d SUBPOWER = 3;
+define SPAN = 5;
 
 
 #endif

@@ -21,7 +21,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		reimutest.draw();
 		reimushot.mainshot1();
 		reimushot.mainshot2();
-		front.draw();
+		//front.draw();
 	}
 	// ＤＸライブラリの使用終了
 	DxLib_End();

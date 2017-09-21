@@ -4,19 +4,22 @@
 #include "player.h"
 #include "DxLib.h"
 
-player::player() {
-	x = 228;
-	y = 405;
+player::player()
+	:px(228),py(405),bomb(DEFAULT_BOMB),player_num(DEFAULT_PLAYER),power(1.00),point(10000),speed(SPEED),slow_speed(SLOW)
+	,count1(0),count2(0),i(0),j(0)
+{
+	/*px = 228;
+	py = 405;
 	bomb = DEFAULT_BOMB;
 	player_num = DEFAULT_PLAYER;
 	power = 1.00;
 	point = 10000;
 	speed = SPEED;
 	slow_speed = SLOW;
-	count1 = 0;
-	count2 = 0;
-	i = 0;
-	j = 0;
+	count1=0;
+	count2=0;
+	i=0;
+	j=0;*/
 	life = true;
 	right = false;
 	left = false;
@@ -25,22 +28,22 @@ player::player() {
 	slow = false;
 	graphic[24] = 0;
 	LoadDivGraph("../player/player01/player.png", 24, 8, 3, 32, 48, graphic);
-	slow_effe = LoadGraph("../player/slow-eff.png");
+	slow_effe = LoadGraph("../player/player-slow-eff.png");
 }
 
 void player::move() {
 
-	if (x <= FIELD_MIN_X + 32) {
-		x = FIELD_MIN_X + 32;
+	if (px <= FIELD_MIN_X + 32) {
+		px = FIELD_MIN_X + 32;
 	}
-	if (x >= FIELD_MAX_X - 32) {
-		x = FIELD_MAX_X - 32;
+	if (px >= FIELD_MAX_X - 32) {
+		px = FIELD_MAX_X - 32;
 	}
-	if (y <= FIELD_MIN_Y + 32) {
-		y = FIELD_MIN_Y + 32;
+	if (py <= FIELD_MIN_Y + 32) {
+		py = FIELD_MIN_Y + 32;
 	}
-	if (y >= FIELD_MAX_Y - 32) {
-		y = FIELD_MAX_Y - 32;
+	if (py >= FIELD_MAX_Y - 32) {
+		py = FIELD_MAX_Y - 32;
 	}
 
 
@@ -166,23 +169,23 @@ void player::move() {
 
 	if (!slow) {
 		if (right)
-			x += SPEED;
+			px += SPEED;
 		if (left)
-			x-= SPEED;
+			px-= SPEED;
 		if (up)
-			y-= SPEED;
+			py-= SPEED;
 		if (down)
-			y+= SPEED;
+			py+= SPEED;
 	}
 	else {
 		if (right)
-			x += SLOW;
+			px += SLOW;
 		if (left)
-			x -= SLOW;
+			px -= SLOW;
 		if (up)
-			y -= SLOW;
+			py -= SLOW;
 		if (down)
-			y += SLOW;
+			py += SLOW;
 	}
 }
 
@@ -212,14 +215,15 @@ void player::draw() {
 		j++;
 	}
 	
-	DrawRotaGraph(x, y, 1, 0, graphic[j], TRUE);
+	DrawRotaGraph(px, py, 1, 0, graphic[j], TRUE);
 	if (slow) {
 		i++;
-		DrawRotaGraph(x, y, 1, i * 2, slow_effe, TRUE);
+		DrawRotaGraph(px, py, 1, i / 8, slow_effe, TRUE);
+		DrawRotaGraph(px, py, 1, i / -8, slow_effe, TRUE);
 	}
 	//DrawPixel(x, y, GetColor(255, 255, 255));
 	DrawFormatString(0, 0, RGB(255, 255, 255), "[%d],[%d]", j, count1);
-	DrawFormatString(0, 20, RGB(255, 255, 255), "[%d],[%d]", x, y);
+	DrawFormatString(0, 20, RGB(255, 255, 255), "[%d],[%d]", px, py);
 }
 
 
@@ -229,6 +233,7 @@ shot::shot() {
 	subspeed = SUBSHOTSPEED;
 	m_power = POWER;
 	s_power = SUBPOWER;
+	span = SPAN;
 
 	mainshotgr = LoadGraph("../player/player01/shot.png");
 	optionshotgr = LoadGraph("../player/player01/optionshot.png");
@@ -240,64 +245,81 @@ shot::shot() {
 	for (int i = 0; i < P_MAX_SHOT; i++) {
 		p_shot[i][0] = false;
 		p_shot[i][1] = false;
-		sx[i][0] = 0;
-		sy[i][0] = 0;
-		sx[i][1] = 0;
-		sy[i][1] = 0;
+		hit[i][0] = false;
+		hit[i][1] = false;
 	}
 }
 
 void shot::mainshot1() {
-	shotcount1++;
-	if (shotcount1 % 10 == 0) {
-		if (CheckHitKey(KEY_INPUT_Z) != 0) {
+	int k;
+
+	if (CheckHitKey(KEY_INPUT_Z) != 0) {
+		shotcount1++;
+		if (shotcount1 % span == 0) {
 			PlaySoundMem(shotse, DX_PLAYTYPE_BACK);
-			DrawString(0, 40, "Z‰Ÿ‰º’†", RGB(255, 255, 255));
-			for (int i = 0; i < P_MAX_SHOT; i++) {
-				if (!p_shot[i][0]) {
-					sx[i][0] = x + 12;
-					sy[i][0] = y - 40;
-					p_shot[i][0] = true;
+			for (k = 0; k < P_MAX_SHOT; k++) {
+				if (!p_shot[k][0]) {
 					break;
 				}
 			}
+			if (k != P_MAX_SHOT) {
+				sx[k][0] = &px + 12;
+				sy[k][0] = &py - 40;
+				p_shot[k][0] = true;
+			}
 		}
+	}
+	else {
+		shotcount1 = 9;
 	}
 
-	for (int i = 0; i < P_MAX_SHOT; i++) {
-		if (p_shot[i][0]) {
-			sy[i][0] -= shotspeed;
-			if (sx[i][0] > FIELD_MAX_X || sx[i][0] < FIELD_MIN_X
-				|| sy[i][0] < FIELD_MIN_Y || sy[i][0] > FIELD_MAX_Y) {
-				p_shot[i][0] = false;
-			}
-			DrawRotaGraph(sx[i][0], sy[i][0], 1, PI, mainshotgr, TRUE);
+	for (k = 0; k < P_MAX_SHOT; k++) {
+		if (!p_shot[k][0]) {
+			continue;
+		}
+		else {
+			DrawRotaGraph(*sx[k][0], *sy[k][0], 1, 0, mainshotgr, TRUE);
+		}
+		sy[k][0] -= shotspeed;
+		if (sy[k][0] < 0) {
+			p_shot[k][0] = false;
 		}
 	}
+	DrawFormatString(0, 40, GetColor(255, 255, 255), "[%d][%d]", *sx, *sy);
 }
 
 void shot::mainshot2() {
-	shotcount2++;
-	if (shotcount2 % 10) {
-		if (CheckHitKey(KEY_INPUT_Z) != 0) {
-			for (int i = 0; i < P_MAX_SHOT; i++) {
-				if (!p_shot[i][1]) {
-					sx[i][1] = x - 12;
-					sy[i][1] = y - 40;
-					p_shot[i][1] = true;
-					break;
-				}
-			}
+	int k;
+	for (k = 0; k < P_MAX_SHOT; k++) {
+		if (!p_shot[k][1]) {
+			continue;
+		}
+		else {
+			DrawRotaGraph(*sx[k][1], *sy[k][1], 1, 0, mainshotgr, TRUE);
+		}
+		sy[k][1] -= shotspeed;
+		if (sy[k][1] < 0) {
+			p_shot[k][1] = false;
 		}
 	}
 
-	for (int i = 0; i < P_MAX_SHOT; i++) {
-		if (p_shot[i][1]) {
-			sy[i][1] -= shotspeed;
-			if (sy[i][1] > 0) {
-				p_shot[i][1] = false;
+	if (CheckHitKey(KEY_INPUT_Z) != 0) {
+		shotcount2++;
+		if (shotcount2 % span == 0) {
+			PlaySoundMem(shotse, DX_PLAYTYPE_BACK);
+			for (k = 0; k < P_MAX_SHOT; k++) {
+				if (!p_shot[k][0]) {
+					break;
+				}
 			}
-			DrawRotaGraph(sx[i][1], sy[i][1], 1, PI / 2, mainshotgr, TRUE);
+			if (k != P_MAX_SHOT) {
+				sx[k][1] = &px - 12;
+				sy[k][1] = &py - 40;
+				p_shot[k][1] = true;
+			}
 		}
+	}
+	else {
+		shotcount2 = 9;
 	}
 }

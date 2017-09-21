@@ -13,8 +13,8 @@ protected:
 	unsigned int point;
 	Graph_ graphic[24];
 	Graph_ slow_effe;
-	Point_ x;
-	Point_ y;
+	Point_ px;
+	Point_ py;
 	Count_ count1;
 	Count_ count2;
 	int speed;
@@ -35,10 +35,11 @@ public:
 
 class shot : protected player {
 private:
-	Point_ sx[P_MAX_SHOT][2];
-	Point_ sy[P_MAX_SHOT][2];
+	Point_ *sx[P_MAX_SHOT][2];
+	Point_ *sy[P_MAX_SHOT][2];
 	int shotspeed;
 	int subspeed;
+	int span;
 	Count_ shotcount1;
 	Count_ shotcount2;
 	double m_power;
@@ -48,6 +49,7 @@ private:
 	Graph_ optiongr;
 	Sound_ shotse;
 	bool p_shot[P_MAX_SHOT][2];
+	bool hit[P_MAX_SHOT][2];
 public:
 	shot();
 	void mainshot1();

@@ -38,9 +38,6 @@
     <ClInclude Include="source\bullet.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="source\class_admin.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="source\define.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
