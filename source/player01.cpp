@@ -29,6 +29,30 @@ player::player()
 	graphic[24] = 0;
 	LoadDivGraph("../player/player01/player.png", 24, 8, 3, 32, 48, graphic);
 	slow_effe = LoadGraph("../player/player-slow-eff.png");
+
+	//shot
+	shotspeed = SHOTSPEED;
+	subspeed = SUBSHOTSPEED;
+	m_power = POWER;
+	s_power = SUBPOWER;
+	span = SPAN;
+
+	mainshotgr = LoadGraph("../player/player01/shot.png");
+	optionshotgr = LoadGraph("../player/player01/optionshot.png");
+	optionshotgr = LoadGraph("../player/player01/option.png");
+	shotse = LoadSoundMem("../se/shot.wav");
+	shotcount1 = 0;
+	shotcount2 = 0;
+	shotkey = false;
+
+	for (int i = 0; i < P_MAX_SHOT; i++) {
+		for (int j = 0; j < 2; j++) {
+			p_shot[i][j] = false;
+			hit[i][j] = false;
+			sx[i][j] = px;
+			sy[i][j] = py;
+		}
+	}
 }
 
 void player::move() {
@@ -218,8 +242,8 @@ void player::draw() {
 	DrawRotaGraph(px, py, 1, 0, graphic[j], TRUE);
 	if (slow) {
 		i++;
-		DrawRotaGraph(px, py, 1, i / 8, slow_effe, TRUE);
-		DrawRotaGraph(px, py, 1, i / -8, slow_effe, TRUE);
+		DrawRotaGraph(px, py, 1, i / 6, slow_effe, TRUE);
+		DrawRotaGraph(px, py, 1, i / -6, slow_effe, TRUE);
 	}
 	//DrawPixel(x, y, GetColor(255, 255, 255));
 	DrawFormatString(0, 0, RGB(255, 255, 255), "[%d],[%d]", j, count1);
@@ -227,7 +251,7 @@ void player::draw() {
 }
 
 
-shot::shot() {
+/*shot::shot() {
 	
 	shotspeed = SHOTSPEED;
 	subspeed = SUBSHOTSPEED;
@@ -248,12 +272,19 @@ shot::shot() {
 		hit[i][0] = false;
 		hit[i][1] = false;
 	}
+}*/
+
+void player::shot_key() {
+	if (CheckHitKey(KEY_INPUT_Z) != 0)
+		shotkey = true;
+	else
+		shotkey = false;
 }
 
-void shot::mainshot1() {
+void player::mainshot1() {
 	int k;
 
-	if (CheckHitKey(KEY_INPUT_Z) != 0) {
+	if (shotkey) {
 		shotcount1++;
 		if (shotcount1 % span == 0) {
 			PlaySoundMem(shotse, DX_PLAYTYPE_BACK);
@@ -263,8 +294,8 @@ void shot::mainshot1() {
 				}
 			}
 			if (k != P_MAX_SHOT) {
-				sx[k][0] = &px + 12;
-				sy[k][0] = &py - 40;
+				sx[k][0] = px + 12;
+				sy[k][0] = py - 40;
 				p_shot[k][0] = true;
 			}
 		}
@@ -278,48 +309,79 @@ void shot::mainshot1() {
 			continue;
 		}
 		else {
-			DrawRotaGraph(*sx[k][0], *sy[k][0], 1, 0, mainshotgr, TRUE);
+			DrawRotaGraph(sx[k][0], sy[k][0], 1, 3 * PI / 2, mainshotgr, TRUE);
 		}
 		sy[k][0] -= shotspeed;
 		if (sy[k][0] < 0) {
 			p_shot[k][0] = false;
 		}
 	}
-	DrawFormatString(0, 40, GetColor(255, 255, 255), "[%d][%d]", *sx, *sy);
+	DrawFormatString(0, 40, GetColor(255, 255, 255), "[%d][%d]", sx[0][0], sy[0][0]);
 }
 
-void shot::mainshot2() {
-	int k;
-	for (k = 0; k < P_MAX_SHOT; k++) {
-		if (!p_shot[k][1]) {
-			continue;
-		}
-		else {
-			DrawRotaGraph(*sx[k][1], *sy[k][1], 1, 0, mainshotgr, TRUE);
-		}
-		sy[k][1] -= shotspeed;
-		if (sy[k][1] < 0) {
-			p_shot[k][1] = false;
-		}
-	}
-
-	if (CheckHitKey(KEY_INPUT_Z) != 0) {
+void player::mainshot2() {
+	if (shotkey) {
 		shotcount2++;
-		if (shotcount2 % span == 0) {
-			PlaySoundMem(shotse, DX_PLAYTYPE_BACK);
-			for (k = 0; k < P_MAX_SHOT; k++) {
-				if (!p_shot[k][0]) {
-					break;
+		if (shotcount2%span == 0) {
+			for (int k = 0; k < P_MAX_SHOT; k++) {
+				if (!p_shot[k][0]||!p_shot[k][1]) {
+					for (int l = 0; l < 2; l++) {
+						if (l == 0)
+							sx[k][l] = px + 12;
+						else
+							sx[k][l] = px - 12;
+						sy[k][l] = py - 40;
+						p_shot[k][l] = true;
+						break;
+					}
 				}
-			}
-			if (k != P_MAX_SHOT) {
-				sx[k][1] = &px - 12;
-				sy[k][1] = &py - 40;
-				p_shot[k][1] = true;
 			}
 		}
 	}
 	else {
 		shotcount2 = 9;
 	}
+
+	for (int k = 0; k < P_MAX_SHOT; k++) {
+		for (int l = 0; l < 2; l++) {
+			if (p_shot[k][l]) {
+				DrawRotaGraph(sx[k][l], sy[k][l], 1, 3 * PI / 2, mainshotgr, TRUE);
+				sy[k][l] -= shotspeed;
+				if (sy[k][l] < 0) {
+					p_shot[k][l] = false;
+				}
+			}
+		}
+	}
+}
+
+void player::optionshot() {
+
+}
+
+void player::updata() {
+	move();
+	draw();
+
+	shot_key();
+	//mainshot1();
+	mainshot2();
+	optionshot();
+}
+
+
+int player::GetPlayerX() {
+	return px;
+}
+
+int player::GetPlayerY() {
+	return py;
+}
+
+void player::SetPlayerX(Point_ x) {
+	px = x;
+}
+
+void player::SetPlayerY(Point_ y) {
+	px = y;
 }

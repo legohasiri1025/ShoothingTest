@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClCompile Include="source\bullet.cpp" />
     <ClCompile Include="source\bullet_graphic.cpp" />
+    <ClInclude Include="source\enemy.h" />
+    <ClCompile Include="source\enemy.cpp" />
+    <ClCompile Include="source\enemy_shot.cpp" />
     <ClCompile Include="source\front.cpp" />
     <ClCompile Include="source\func.cpp" />
     <ClCompile Include="source\main.cpp" />
