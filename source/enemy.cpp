@@ -29,6 +29,10 @@ enemy::enemy(const char *id, int hp, type type) {
 
 }
 
+enemy::enemy() {
+
+}
+
 int enemy::GetEnemyX() {
 	return x;
 }

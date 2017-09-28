@@ -31,8 +31,8 @@ private:
 	Point_ sx, sy;
 	Graph_ bullet;
 public:
-	enemy_shot();
-	enemy_shot(int id);
+	/*enemy_shot();
+	enemy_shot(int id);*/
 
 	void Shot(Point_ x, Point_ y, _Color color, Type type, double angle, double speed);
 	int	ShotFlag(Point_ x, Point_ y, _Color color, Type type, double angle, double speed);
