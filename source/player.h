@@ -52,7 +52,7 @@ public:
 	//shot
 	void mainshot1();
 	void mainshot2();
-	void shot_key();
+	bool shot_key();
 	void optionshot();
 
 	void updata();

@@ -5,8 +5,8 @@
 #include "DxLib.h"
 
 player::player()
-	:px(228),py(405),bomb(DEFAULT_BOMB),player_num(DEFAULT_PLAYER),power(1.00),point(10000),speed(SPEED),slow_speed(SLOW)
-	,count1(0),count2(0),i(0),j(0)
+	:px(228), py(405), bomb(DEFAULT_BOMB), player_num(DEFAULT_PLAYER), power(1.00), point(10000), speed(SPEED), slow_speed(SLOW)
+	, count1(0), count2(0), i(0), j(0)
 {
 	/*px = 228;
 	py = 405;
@@ -27,8 +27,8 @@ player::player()
 	down = false;
 	slow = false;
 	graphic[24] = 0;
-	LoadDivGraph("../player/player01/player.png", 24, 8, 3, 32, 48, graphic);
-	slow_effe = LoadGraph("../player/player-slow-eff.png");
+	LoadDivGraph("player/player01/player.png", 24, 8, 3, 32, 48, graphic);
+	slow_effe = LoadGraph("player/player-slow-eff.png");
 
 	//shot
 	shotspeed = SHOTSPEED;
@@ -37,10 +37,10 @@ player::player()
 	s_power = SUBPOWER;
 	span = SPAN;
 
-	mainshotgr = LoadGraph("../player/player01/shot.png");
-	optionshotgr = LoadGraph("../player/player01/optionshot.png");
-	optionshotgr = LoadGraph("../player/player01/option.png");
-	shotse = LoadSoundMem("../se/shot.wav");
+	mainshotgr = LoadGraph("player/player01/shot.png");
+	optionshotgr = LoadGraph("player/player01/optionshot.png");
+	optionshotgr = LoadGraph("player/player01/option.png");
+	shotse = LoadSoundMem("se/shot.wav");
 	shotcount1 = 0;
 	shotcount2 = 0;
 	shotkey = false;
@@ -81,7 +81,7 @@ void player::move() {
 
 
 
-	if ((CheckHitKey(KEY_INPUT_UP) != 0)|| (CheckHitKey(KEY_INPUT_NUMPAD8) != 0)) {
+	if ((CheckHitKey(KEY_INPUT_UP) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD8) != 0)) {
 
 		if ((CheckHitKey(KEY_INPUT_RIGHT) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD6) != 0)) {
 			right = true;
@@ -100,7 +100,7 @@ void player::move() {
 		down = false;
 	}
 
-	else if ((CheckHitKey(KEY_INPUT_DOWN) != 0)||(CheckHitKey(KEY_INPUT_NUMPAD2)!=0)) {
+	else if ((CheckHitKey(KEY_INPUT_DOWN) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD2) != 0)) {
 
 		if ((CheckHitKey(KEY_INPUT_RIGHT) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD6) != 0)) {
 			right = true;
@@ -195,11 +195,11 @@ void player::move() {
 		if (right)
 			px += SPEED;
 		if (left)
-			px-= SPEED;
+			px -= SPEED;
 		if (up)
-			py-= SPEED;
+			py -= SPEED;
 		if (down)
-			py+= SPEED;
+			py += SPEED;
 	}
 	else {
 		if (right)
@@ -238,103 +238,97 @@ void player::draw() {
 	if (count1 % 6 == 0) {
 		j++;
 	}
-	
+
 	DrawRotaGraph(px, py, 1, 0, graphic[j], TRUE);
 	if (slow) {
 		i++;
-		DrawRotaGraph(px, py, 1, i / 6, slow_effe, TRUE);
-		DrawRotaGraph(px, py, 1, i / -6, slow_effe, TRUE);
+		DrawRotaGraph(px, py, 1, i / 4, slow_effe, TRUE);
+		DrawRotaGraph(px, py, 1, i / -4, slow_effe, TRUE);
 	}
 	//DrawPixel(x, y, GetColor(255, 255, 255));
 	DrawFormatString(0, 0, RGB(255, 255, 255), "[%d],[%d]", j, count1);
 	DrawFormatString(0, 20, RGB(255, 255, 255), "[%d],[%d]", px, py);
+	if (p_shot[0][0])
+		DrawString(0, 60, "[0][0]‚Ítrue", RGB(255, 255, 255));
 }
 
 
 /*shot::shot() {
-	
-	shotspeed = SHOTSPEED;
-	subspeed = SUBSHOTSPEED;
-	m_power = POWER;
-	s_power = SUBPOWER;
-	span = SPAN;
 
-	mainshotgr = LoadGraph("../player/player01/shot.png");
-	optionshotgr = LoadGraph("../player/player01/optionshot.png");
-	optionshotgr = LoadGraph("../player/player01/option.png");
-	shotse = LoadSoundMem("../se/shot.wav");
-	shotcount1 = 0;
-	shotcount2 = 0;
+shotspeed = SHOTSPEED;
+subspeed = SUBSHOTSPEED;
+m_power = POWER;
+s_power = SUBPOWER;
+span = SPAN;
 
-	for (int i = 0; i < P_MAX_SHOT; i++) {
-		p_shot[i][0] = false;
-		p_shot[i][1] = false;
-		hit[i][0] = false;
-		hit[i][1] = false;
-	}
+mainshotgr = LoadGraph("ShoothingTest/player/player01/shot.png");
+optionshotgr = LoadGraph("ShoothingTest/player/player01/optionshot.png");
+optionshotgr = LoadGraph("ShoothingTest/player/player01/option.png");
+shotse = LoadSoundMem("../se/shot.wav");
+shotcount1 = 0;
+shotcount2 = 0;
+
+for (int i = 0; i < P_MAX_SHOT; i++) {
+p_shot[i][0] = false;
+p_shot[i][1] = false;
+hit[i][0] = false;
+hit[i][1] = false;
+}
 }*/
 
-void player::shot_key() {
-	if (CheckHitKey(KEY_INPUT_Z) != 0)
-		shotkey = true;
-	else
-		shotkey = false;
+bool player::shot_key() {
+	shotcount1++;
+	if (shotcount1 % span == 0) {
+		if (CheckHitKey(KEY_INPUT_Z) != 0) {
+			DrawString(0, 40, "Z", RGB(255, 255, 255));
+			PlaySoundMem(shotse, DX_PLAYTYPE_BACK);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else {
+		return false;
+	}
 }
 
 void player::mainshot1() {
 	int k;
-
-	if (shotkey) {
-		shotcount1++;
-		if (shotcount1 % span == 0) {
-			PlaySoundMem(shotse, DX_PLAYTYPE_BACK);
-			for (k = 0; k < P_MAX_SHOT; k++) {
-				if (!p_shot[k][0]) {
-					break;
+	if (shot_key()) {
+		for (k = 0; k < P_MAX_SHOT; ++k) {
+			if (!p_shot[k][0]) {
+				p_shot[k][0] = true;
+				sx[k][0] = px - 12;
+				sy[k][0] = py - 40;
+			}
+			else {
+				if (sy[k][0] > 0) {
+					sy[k][0] - SHOT_SPEED;
+					DrawRotaGraph(sx[k][0], sy[k][0], 1, 0, mainshotgr, TRUE);
+				}
+				else {
+					p_shot[k][0] = false;
 				}
 			}
-			if (k != P_MAX_SHOT) {
-				sx[k][0] = px + 12;
-				sy[k][0] = py - 40;
-				p_shot[k][0] = true;
-			}
 		}
 	}
-	else {
-		shotcount1 = 9;
-	}
-
-	for (k = 0; k < P_MAX_SHOT; k++) {
-		if (!p_shot[k][0]) {
-			continue;
-		}
-		else {
-			DrawRotaGraph(sx[k][0], sy[k][0], 1, 3 * PI / 2, mainshotgr, TRUE);
-		}
-		sy[k][0] -= shotspeed;
-		if (sy[k][0] < 0) {
-			p_shot[k][0] = false;
-		}
-	}
-	DrawFormatString(0, 40, GetColor(255, 255, 255), "[%d][%d]", sx[0][0], sy[0][0]);
 }
 
 void player::mainshot2() {
-	if (shotkey) {
-		shotcount2++;
-		if (shotcount2%span == 0) {
-			for (int k = 0; k < P_MAX_SHOT; k++) {
-				if (!p_shot[k][0]||!p_shot[k][1]) {
-					for (int l = 0; l < 2; l++) {
-						if (l == 0)
-							sx[k][l] = px + 12;
-						else
-							sx[k][l] = px - 12;
-						sy[k][l] = py - 40;
-						p_shot[k][l] = true;
-						break;
-					}
+	if (shot_key()) {
+		for (int k = 0; k < P_MAX_SHOT; k++) {
+			if (!p_shot[k][0] || !p_shot[k][1]) {
+				for (int l = 0; l < 2; l++) {
+					if (l == 0)
+						sx[k][l] = px + 12;
+					else
+						sx[k][l] = px - 12;
+					sy[k][l] = py - 40;
+					p_shot[k][l] = true;
+					break;
 				}
+
 			}
 		}
 	}
