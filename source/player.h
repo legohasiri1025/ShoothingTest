@@ -3,7 +3,7 @@
 #include "define.h"
 
 class player {
-private:
+protected:
 	unsigned char playermode;
 	unsigned char player_num;
 	unsigned char bomb;
