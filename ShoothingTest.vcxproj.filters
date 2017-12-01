@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="picture">
+      <UniqueIdentifier>{3666fe7c-4e6d-43ef-8dab-40db35ce77d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\bullet.cpp">
@@ -74,6 +77,66 @@
   <ItemGroup>
     <Image Include="icon1.ico">
       <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="player\player-slow-eff.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="player\player01\option.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="player\player01\optionshot.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="player\player01\player.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="player\player01\shot.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="title\title_back.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="title\title_copyright.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="title\title_logo.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="title\title_menu.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="front\front_bomb.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="front\front_enemymarker.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="front\front_front.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="front\front_graze.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="front\front_hiscore.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="front\front_life.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="front\front_player.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="front\front_point.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="front\front_power.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="front\front_score.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="front\front_star.png">
+      <Filter>picture</Filter>
     </Image>
   </ItemGroup>
 </Project>

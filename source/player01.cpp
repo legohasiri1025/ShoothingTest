@@ -250,6 +250,8 @@ void player::draw() {
 	DrawFormatString(0, 20, RGB(255, 255, 255), "[%d],[%d]", px, py);
 	if (p_shot[0][0])
 		DrawString(0, 60, "[0][0]‚Ítrue", RGB(255, 255, 255));
+	/*if (p_shot[20][0])
+		DrawString(0, 80, "[20][0]‚Ítrue", RGB(255, 255, 255));*/
 }
 
 
@@ -281,7 +283,7 @@ bool player::shot_key() {
 	if (shotcount1 % span == 0) {
 		if (CheckHitKey(KEY_INPUT_Z) != 0) {
 			DrawString(0, 40, "Z", RGB(255, 255, 255));
-			PlaySoundMem(shotse, DX_PLAYTYPE_BACK);
+			
 			return true;
 		}
 		else {
@@ -295,58 +297,37 @@ bool player::shot_key() {
 
 void player::mainshot1() {
 	int k;
-	if (shot_key()) {
-		for (k = 0; k < P_MAX_SHOT; ++k) {
+	for (k = 0; k < P_MAX_SHOT; ++k) {
+		if (shot_key()) {
 			if (!p_shot[k][0]) {
+				PlaySoundMem(shotse, DX_PLAYTYPE_BACK);
 				p_shot[k][0] = true;
-				sx[k][0] = px - 12;
-				sy[k][0] = py - 40;
+				sx[k][0] = px - 16;
+				sy[k][0] = py - 32;
+				break;
 			}
 			else {
-				if (sy[k][0] > 0) {
-					sy[k][0] - SHOT_SPEED;
-					DrawRotaGraph(sx[k][0], sy[k][0], 1, 0, mainshotgr, TRUE);
-				}
-				else {
-					p_shot[k][0] = false;
-				}
+				continue;
+			}
+		}
+	}
+	for (k = 0; k < P_MAX_SHOT; ++k) {
+		if (!p_shot[k][0]) {
+			continue;
+		}
+		else {
+			if (sy < 0) {
+				p_shot[k][0] = false;
+			}
+			else {
+				sy[k][0] -= SHOTSPEED;
+				DrawRotaGraph(sx[k][0], sy[k][0], 1, 0, mainshotgr, TRUE);
 			}
 		}
 	}
 }
 
 void player::mainshot2() {
-	if (shot_key()) {
-		for (int k = 0; k < P_MAX_SHOT; k++) {
-			if (!p_shot[k][0] || !p_shot[k][1]) {
-				for (int l = 0; l < 2; l++) {
-					if (l == 0)
-						sx[k][l] = px + 12;
-					else
-						sx[k][l] = px - 12;
-					sy[k][l] = py - 40;
-					p_shot[k][l] = true;
-					break;
-				}
-
-			}
-		}
-	}
-	else {
-		shotcount2 = 9;
-	}
-
-	for (int k = 0; k < P_MAX_SHOT; k++) {
-		for (int l = 0; l < 2; l++) {
-			if (p_shot[k][l]) {
-				DrawRotaGraph(sx[k][l], sy[k][l], 1, 3 * PI / 2, mainshotgr, TRUE);
-				sy[k][l] -= shotspeed;
-				if (sy[k][l] < 0) {
-					p_shot[k][l] = false;
-				}
-			}
-		}
-	}
 }
 
 void player::optionshot() {
@@ -358,7 +339,7 @@ void player::updata() {
 	draw();
 
 	shot_key();
-	//mainshot1();
+	mainshot1();
 	mainshot2();
 	optionshot();
 }

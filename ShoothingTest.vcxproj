@@ -42,7 +42,27 @@
     <ResourceCompile Include="ST_01.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="front\front_bomb.png" />
+    <Image Include="front\front_enemymarker.png" />
+    <Image Include="front\front_front.png" />
+    <Image Include="front\front_graze.png" />
+    <Image Include="front\front_hiscore.png" />
+    <Image Include="front\front_life.png" />
+    <Image Include="front\front_player.png" />
+    <Image Include="front\front_point.png" />
+    <Image Include="front\front_power.png" />
+    <Image Include="front\front_score.png" />
+    <Image Include="front\front_star.png" />
     <Image Include="icon1.ico" />
+    <Image Include="player\player-slow-eff.png" />
+    <Image Include="player\player01\option.png" />
+    <Image Include="player\player01\optionshot.png" />
+    <Image Include="player\player01\player.png" />
+    <Image Include="player\player01\shot.png" />
+    <Image Include="title\title_back.png" />
+    <Image Include="title\title_copyright.png" />
+    <Image Include="title\title_logo.png" />
+    <Image Include="title\title_menu.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -116,9 +136,13 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\cpp\DxLibNoneModel_NoneSoftDrawCode_VC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AssemblerOutput>AssemblyCode</AssemblerOutput>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\cpp\DxLibNoneModel_NoneSoftDrawCode_VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <Version>
+      </Version>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -146,11 +170,14 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\cpp\DxLibNoneModel_NoneSoftDrawCode_VC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AssemblerOutput>AssemblyCode</AssemblerOutput>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>C:\cpp\DxLibNoneModel_NoneSoftDrawCode_VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <Version>/VERSION</Version>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
