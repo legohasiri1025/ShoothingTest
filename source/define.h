@@ -11,7 +11,7 @@ typedef const float define_f;
 typedef const double define_d;
 
 define E_MAX_SHOT		= 2000;
-define P_MAX_SHOT		= 25;
+define P_MAX_SHOT		= 50;
 define_f PI				= 3.141592653589793f;
 define FIELD_MIN_X		= 32;
 define FIELD_MIN_Y		= 16;

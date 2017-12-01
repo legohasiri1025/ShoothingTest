@@ -57,7 +57,7 @@ player::player()
 
 void player::move() {
 
-	if (px <= FIELD_MIN_X + 32) {
+	if (px < FIELD_MIN_X + 32) {
 		px = FIELD_MIN_X + 32;
 	}
 	if (px >= FIELD_MAX_X - 32) {
@@ -279,8 +279,8 @@ hit[i][1] = false;
 }*/
 
 bool player::shot_key() {
-	shotcount1++;
-	if (shotcount1 % span == 0) {
+	
+	if (shotcount1 % SPAN == 0) {
 		if (CheckHitKey(KEY_INPUT_Z) != 0) {
 			DrawString(0, 40, "Z", RGB(255, 255, 255));
 			
@@ -316,18 +316,47 @@ void player::mainshot1() {
 			continue;
 		}
 		else {
-			if (sy < 0) {
+			if (sy[k][0] < 0) {
 				p_shot[k][0] = false;
 			}
 			else {
 				sy[k][0] -= SHOTSPEED;
-				DrawRotaGraph(sx[k][0], sy[k][0], 1, 0, mainshotgr, TRUE);
+				DrawRotaGraph(sx[k][0], sy[k][0], 1, 3*PI/2, mainshotgr, TRUE);
 			}
 		}
 	}
 }
 
 void player::mainshot2() {
+	int k;
+	for (k = 0; k < P_MAX_SHOT; ++k) {
+		if (shot_key()) {
+			if (!p_shot[k][1]) {
+				p_shot[k][1] = true;
+				sx[k][1] = px + 16;
+				sy[k][1] = py - 32;
+				break;
+			}
+			else {
+				continue;
+			}
+		}
+	}
+	for (k = 0; k < P_MAX_SHOT; ++k) {
+		if (!p_shot[k][1]) {
+			continue;
+		}
+		else {
+			if (sy[k][1] < 0) {
+				p_shot[k][1] = false;
+			}
+			else {
+				sy[k][1] -= SHOTSPEED;
+				DrawRotaGraph(sx[k][1], sy[k][1], 1, 3 * PI / 2, mainshotgr, TRUE);
+			}
+		}
+	}
+
 }
 
 void player::optionshot() {
@@ -338,6 +367,8 @@ void player::updata() {
 	move();
 	draw();
 
+
+	shotcount1++;
 	shot_key();
 	mainshot1();
 	mainshot2();
