@@ -5,8 +5,7 @@
 #include "DxLib.h"
 
 player::player()
-	:px(228), py(405), bomb(DEFAULT_BOMB), player_num(DEFAULT_PLAYER), power(1.00), point(10000), speed(SPEED), slow_speed(SLOW)
-	, count1(0), count2(0), i(0), j(0)
+	:px(228), py(405), bomb(DEFAULT_BOMB), player_num(DEFAULT_PLAYER), power(1.00), point(10000), count1(0), count2(0), i(0), j(0)
 {
 	/*px = 228;
 	py = 405;
@@ -70,8 +69,6 @@ void player::move() {
 		py = FIELD_MAX_Y - 32;
 	}
 
-
-
 	if (CheckHitKey(KEY_INPUT_LSHIFT) != 0) {
 		slow = true;
 	}
@@ -79,137 +76,106 @@ void player::move() {
 		slow = false;
 	}
 
+	slow ? speed = SLOW : speed = SPEED;
 
-
-	if ((CheckHitKey(KEY_INPUT_UP) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD8) != 0)) {
-
-		if ((CheckHitKey(KEY_INPUT_RIGHT) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD6) != 0)) {
-			right = true;
-			left = false;
-		}
-		else if ((CheckHitKey(KEY_INPUT_LEFT) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD4) != 0)) {
+	if (CheckHitKey(KEY_INPUT_UP) != 0 || CheckHitKey(KEY_INPUT_NUMPAD8) != 0) {
+		if (CheckHitKey(KEY_INPUT_LEFT) != 0 || CheckHitKey(KEY_INPUT_NUMPAD4) != 0) {
 			left = true;
 			right = false;
 		}
-		else {
-			left = false;
-			right = false;
-		}
 
+		else if (CheckHitKey(KEY_INPUT_RIGHT) != 0 || CheckHitKey(KEY_INPUT_NUMPAD6) != 0) {
+			left = false;
+			right = true;
+		}
 		up = true;
 		down = false;
 	}
 
-	else if ((CheckHitKey(KEY_INPUT_DOWN) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD2) != 0)) {
-
-		if ((CheckHitKey(KEY_INPUT_RIGHT) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD6) != 0)) {
-			right = true;
-			left = false;
-		}
-		else if ((CheckHitKey(KEY_INPUT_LEFT) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD4) != 0)) {
+	else if (CheckHitKey(KEY_INPUT_DOWN) != 0 || CheckHitKey(KEY_INPUT_NUMPAD2) != 0) {
+		if (CheckHitKey(KEY_INPUT_LEFT) != 0 || CheckHitKey(KEY_INPUT_NUMPAD4) != 0) {
 			left = true;
 			right = false;
 		}
-		else {
+
+		else if (CheckHitKey(KEY_INPUT_RIGHT) != 0 || CheckHitKey(KEY_INPUT_NUMPAD6) != 0) {
 			left = false;
-			right = false;
+			right = true;
 		}
-
-		down = true;
 		up = false;
+		down = true;
 	}
 
-	else if ((CheckHitKey(KEY_INPUT_LEFT) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD4) != 0)) {
-
-		if ((CheckHitKey(KEY_INPUT_UP) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD8) != 0)) {
+	else if (CheckHitKey(KEY_INPUT_LEFT) != 0 || CheckHitKey(KEY_INPUT_NUMPAD4) != 0) {
+		if (CheckHitKey(KEY_INPUT_UP) != 0 || CheckHitKey(KEY_INPUT_NUMPAD8) != 0) {
 			up = true;
 			down = false;
 		}
-		else if ((CheckHitKey(KEY_INPUT_DOWN) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD2) != 0)) {
-			down = true;
-			up = false;
-		}
-		else {
-			up = false;
-			down = false;
-		}
 
+		else if (CheckHitKey(KEY_INPUT_DOWN) != 0 || CheckHitKey(KEY_INPUT_NUMPAD2) != 0) {
+			up = false;
+			down = true;
+		}
 		left = true;
 		right = false;
 	}
 
-	else if ((CheckHitKey(KEY_INPUT_RIGHT) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD6) != 0)) {
-
-		if ((CheckHitKey(KEY_INPUT_UP) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD8) != 0)) {
+	else if (CheckHitKey(KEY_INPUT_RIGHT) != 0 || CheckHitKey(KEY_INPUT_NUMPAD6) != 0) {
+		if (CheckHitKey(KEY_INPUT_UP) != 0 || CheckHitKey(KEY_INPUT_NUMPAD8) != 0) {
 			up = true;
 			down = false;
 		}
-		else if ((CheckHitKey(KEY_INPUT_DOWN) != 0) || (CheckHitKey(KEY_INPUT_NUMPAD2) != 0)) {
+
+		else if (CheckHitKey(KEY_INPUT_DOWN) != 0 || CheckHitKey(KEY_INPUT_NUMPAD2) != 0) {
+			up = false;
 			down = true;
-			up = false;
 		}
-		else {
-			up = false;
-			down = false;
-		}
-
-		right = true;
 		left = false;
-	}
-	else if (CheckHitKey(KEY_INPUT_NUMPAD1) != 0) {
-		left = true;
-		down = true;
-		right = false;
-		up = false;
-	}
-
-	else if (CheckHitKey(KEY_INPUT_NUMPAD3) != 0) {
 		right = true;
-		down = true;
-		left = false;
-		up = false;
-	}
-
-	else if (CheckHitKey(KEY_INPUT_NUMPAD7) != 0) {
-		left = true;
-		up = true;
-		right = false;
-		down = false;
-	}
-
-	else if (CheckHitKey(KEY_INPUT_NUMPAD9) != 0) {
-		right = true;
-		up = true;
-		left = false;
-		down = false;
 	}
 	else {
-		right = false;
-		left = false;
 		up = false;
 		down = false;
+		left = false;
+		right = false;
 	}
 
-
-	if (!slow) {
-		if (right)
-			px += SPEED;
-		if (left)
-			px -= SPEED;
-		if (up)
-			py -= SPEED;
-		if (down)
-			py += SPEED;
+	if (CheckHitKey(KEY_INPUT_NUMPAD1) != 0) {
+		up = false;
+		down = true;
+		left = true;
+		right = false;
 	}
-	else {
-		if (right)
-			px += SLOW;
-		if (left)
-			px -= SLOW;
-		if (up)
-			py -= SLOW;
-		if (down)
-			py += SLOW;
+	if (CheckHitKey(KEY_INPUT_NUMPAD3) != 0) {
+		up = false;
+		down = true;
+		left = false;
+		right = true;
+	}
+	if (CheckHitKey(KEY_INPUT_NUMPAD7) != 0) {
+		up = true;
+		down = false;
+		left = true;
+		right = false;
+	}
+	if (CheckHitKey(KEY_INPUT_NUMPAD9) != 0) {
+		up = true;
+		down = false;
+		left = false;
+		right = true;
+	}
+
+	if (up) {
+		py -= speed;
+	}
+	if (down) {
+		py += speed;
+	}
+	if (left) {
+		px -= speed;
+	}
+	if (right) {
+		px += speed;
 	}
 }
 

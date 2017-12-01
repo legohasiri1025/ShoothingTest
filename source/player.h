@@ -18,7 +18,7 @@ protected:
 	Count_ count1;
 	Count_ count2;
 	int speed;
-	int slow_speed;
+
 	bool life;
 	bool right;
 	bool left;
