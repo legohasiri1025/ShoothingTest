@@ -3,9 +3,10 @@
 #include "player01.h"
 #include "player.h"
 #include "DxLib.h"
+#include "sound.h"
 
 player::player()
-	:px(228), py(405), bomb(DEFAULT_BOMB), player_num(DEFAULT_PLAYER), power(1.00), point(10000), count1(0), count2(0), i(0), j(0)
+	:px(228), py(405), bomb(DEFAULT_BOMB), player_num(DEFAULT_PLAYER), power(1.00), point(10000), count1(0), graze(0),count2(0), i(0), j(0)
 {
 	/*px = 228;
 	py = 405;
@@ -39,7 +40,8 @@ player::player()
 	mainshotgr = LoadGraph("player/player01/shot.png");
 	optionshotgr = LoadGraph("player/player01/optionshot.png");
 	optionshotgr = LoadGraph("player/player01/option.png");
-	shotse = LoadSoundMem("se/shot.wav");
+	shotse = LoadSoundMem("se/shot.ogg");
+
 	shotcount1 = 0;
 	shotcount2 = 0;
 	shotkey = false;
@@ -56,18 +58,6 @@ player::player()
 
 void player::move() {
 
-	if (px < FIELD_MIN_X + 32) {
-		px = FIELD_MIN_X + 32;
-	}
-	if (px >= FIELD_MAX_X - 32) {
-		px = FIELD_MAX_X - 32;
-	}
-	if (py <= FIELD_MIN_Y + 32) {
-		py = FIELD_MIN_Y + 32;
-	}
-	if (py >= FIELD_MAX_Y - 32) {
-		py = FIELD_MAX_Y - 32;
-	}
 
 	if (CheckHitKey(KEY_INPUT_LSHIFT) != 0) {
 		slow = true;
@@ -165,17 +155,32 @@ void player::move() {
 		right = true;
 	}
 
-	if (up) {
-		py -= speed;
+	/*if (px < FIELD_MIN_X + 32) {
+		px = FIELD_MIN_X + 32;
 	}
-	if (down) {
-		py += speed;
+	if (px >= FIELD_MAX_X - 32) {
+		px = FIELD_MAX_X - 32;
 	}
-	if (left) {
-		px -= speed;
+	if (py <= FIELD_MIN_Y + 32) {
+		py = FIELD_MIN_Y + 32;
 	}
-	if (right) {
-		px += speed;
+	if (py >= FIELD_MAX_Y - 32) {
+		py = FIELD_MAX_Y - 32;
+	}*/
+
+	if (!(px < FIELD_MIN_X + 32 || px > FIELD_MAX_X - 32 || py < FIELD_MIN_Y + 32 || py > FIELD_MAX_Y - 32)) {
+		if (up) {
+			py -= speed;
+		}
+		if (down) {
+			py += speed;
+		}
+		if (left) {
+			px -= speed;
+		}
+		if (right) {
+			px += speed;
+		}
 	}
 }
 
@@ -211,13 +216,16 @@ void player::draw() {
 		DrawRotaGraph(px, py, 1, i / 4, slow_effe, TRUE);
 		DrawRotaGraph(px, py, 1, i / -4, slow_effe, TRUE);
 	}
-	//DrawPixel(x, y, GetColor(255, 255, 255));
+
+#ifdef _DEBUG
 	DrawFormatString(0, 0, RGB(255, 255, 255), "[%d],[%d]", j, count1);
-	DrawFormatString(0, 20, RGB(255, 255, 255), "[%d],[%d]", px, py);
-	if (p_shot[0][0])
-		DrawString(0, 60, "[0][0]‚Ítrue", RGB(255, 255, 255));
-	/*if (p_shot[20][0])
-		DrawString(0, 80, "[20][0]‚Ítrue", RGB(255, 255, 255));*/
+	DrawFormatString(120, 0, RGB(255, 255, 255), "[%d],[%d]", px, py);
+	//if (p_shot[0][0])
+	//	DrawString(0, 60, "[0][0]‚Ítrue", RGB(255, 255, 255));
+	//if (p_shot[20][0])
+	//	DrawString(0, 80, "[20][0]‚Ítrue", RGB(255, 255, 255));
+	DrawCircle(px, py,ATARI_R, RGB(255,0,0), TRUE);
+#endif
 }
 
 
@@ -245,11 +253,11 @@ hit[i][1] = false;
 }*/
 
 bool player::shot_key() {
-	
-	if (shotcount1 % SPAN == 0) {
-		if (CheckHitKey(KEY_INPUT_Z) != 0) {
-			DrawString(0, 40, "Z", RGB(255, 255, 255));
-			
+	if (CheckHitKey(KEY_INPUT_Z) != 0) {
+		if (shotcount1 % SPAN == 0) {
+
+			//DrawString(0, 40, "Z", RGB(255, 255, 255));
+
 			return true;
 		}
 		else {
@@ -257,6 +265,7 @@ bool player::shot_key() {
 		}
 	}
 	else {
+		shotcount1 = SPAN - 1;
 		return false;
 	}
 }
@@ -266,7 +275,7 @@ void player::mainshot1() {
 	for (k = 0; k < P_MAX_SHOT; ++k) {
 		if (shot_key()) {
 			if (!p_shot[k][0]) {
-				PlaySoundMem(shotse, DX_PLAYTYPE_BACK);
+				playse(shotse);
 				p_shot[k][0] = true;
 				sx[k][0] = px - 16;
 				sy[k][0] = py - 32;

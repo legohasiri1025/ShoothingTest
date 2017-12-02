@@ -1,6 +1,7 @@
 #ifndef _PLAYER_
 #define _PLAYER_
 #include "define.h"
+#include "sound.h"
 
 class player {
 protected:
@@ -9,7 +10,7 @@ protected:
 	unsigned char bomb;
 	unsigned char option;
 	unsigned char graze;
-	double power;
+	float power;
 	unsigned int point;
 	Graph_ graphic[24];
 	Graph_ slow_effe;
@@ -36,8 +37,8 @@ protected:
 	int span;
 	Count_ shotcount1;
 	Count_ shotcount2;
-	double m_power;
-	double s_power;
+	float m_power;
+	float s_power;
 	Graph_ mainshotgr;
 	Graph_ optionshotgr;
 	Graph_ optiongr;

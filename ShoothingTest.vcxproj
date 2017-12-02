@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="source\bullet.cpp" />
     <ClCompile Include="source\bullet_graphic.cpp" />
+    <ClCompile Include="source\sound.cpp" />
     <ClInclude Include="source\enemy.h" />
     <ClCompile Include="source\enemy.cpp" />
     <ClCompile Include="source\enemy_shot.cpp" />
@@ -28,6 +29,7 @@
     <ClCompile Include="source\func.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\player01.cpp" />
+    <ClInclude Include="source\sound.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -177,7 +179,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>C:\cpp\DxLibNoneModel_NoneSoftDrawCode_VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <Version>/VERSION</Version>
+      <Version>
+      </Version>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

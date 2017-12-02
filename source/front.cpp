@@ -35,4 +35,13 @@ void front::draw() {
 	DrawGraph(440, 150, ch_power_g, TRUE);
 	DrawGraph(440, 170, ch_point_g, TRUE);
 	DrawGraph(440, 190, ch_graze_g, TRUE);
+
+	//’l‚Ì•\Ž¦
+	DrawFormatString(520, 60, RGB(255, 255, 255), "%08d", highscore);
+	DrawFormatString(520, 80, RGB(255, 255, 255), "%08d", score_front);
+	DrawFormatString(520, 110, RGB(255, 255, 255), "%d", player_front);
+	DrawFormatString(520, 130, RGB(255, 255, 255), "%d", bomb_front);
+	DrawFormatString(520, 150, RGB(255, 255, 255), "%1.2f / 4.00", front_power);
+	DrawFormatString(520, 170, RGB(255, 255, 255), "%d", front_point);
+	DrawFormatString(520, 190, RGB(255, 255, 255), "%d", front_graze);
 }

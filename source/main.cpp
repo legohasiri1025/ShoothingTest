@@ -1,6 +1,7 @@
 #include "DxLib.h"
 #include "player.h"
 #include "front.h"
+#include "sound.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 	ChangeWindowMode(TRUE);
