@@ -5,13 +5,6 @@
 
 class front :public player {
 private:
-	unsigned int score_front;
-	unsigned int highscore;
-	unsigned char player_front;
-	unsigned char bomb_front;
-	double front_power;
-	unsigned int front_point;
-	unsigned char front_graze;
 	int enemy_marker_x;
 	int enemy_marker_y;
 	double enemy_marker_bright;

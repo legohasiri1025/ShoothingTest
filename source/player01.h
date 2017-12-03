@@ -5,8 +5,8 @@
 
 #include "define.h"
 
-define SPEED							= 6;
-define SLOW							= 3;
+define SPEED							= 4;
+define SLOW							= 2;
 define SHOT_SPEED				=20;
 define SHOT_OPTION_SPEED	=18;
 

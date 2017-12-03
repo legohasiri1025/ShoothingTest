@@ -4,9 +4,10 @@
 #include "player.h"
 #include "DxLib.h"
 #include "sound.h"
+#include <cmath>
 
 player::player()
-	:px(228), py(405), bomb(DEFAULT_BOMB), player_num(DEFAULT_PLAYER), power(1.00), point(10000), count1(0), graze(0),count2(0), i(0), j(0)
+	:px(228), py(405),score(100000),bomb(DEFAULT_BOMB), player_num(DEFAULT_PLAYER), power(1.00), point(10000), count1(0), graze(0),count2(0), i(0), j(0)
 {
 	/*px = 228;
 	py = 405;
@@ -29,7 +30,12 @@ player::player()
 	graphic[24] = 0;
 	LoadDivGraph("player/player01/player.png", 24, 8, 3, 32, 48, graphic);
 	slow_effe = LoadGraph("player/player-slow-eff.png");
-
+	if (highscore <= score) {
+		highscore = score;
+	}
+	else {
+		highscore = 100000;
+	}
 	//shot
 	shotspeed = SHOTSPEED;
 	subspeed = SUBSHOTSPEED;
@@ -58,7 +64,7 @@ player::player()
 
 void player::move() {
 
-
+	
 	if (CheckHitKey(KEY_INPUT_LSHIFT) != 0) {
 		slow = true;
 	}
@@ -78,6 +84,11 @@ void player::move() {
 			left = false;
 			right = true;
 		}
+		else {
+			left = false;
+			right = false;
+		}
+
 		up = true;
 		down = false;
 	}
@@ -88,10 +99,16 @@ void player::move() {
 			right = false;
 		}
 
+
 		else if (CheckHitKey(KEY_INPUT_RIGHT) != 0 || CheckHitKey(KEY_INPUT_NUMPAD6) != 0) {
 			left = false;
 			right = true;
 		}
+		else {
+			left = false;
+			right = false;
+		}
+
 		up = false;
 		down = true;
 	}
@@ -106,6 +123,11 @@ void player::move() {
 			up = false;
 			down = true;
 		}
+		else {
+			up = false;
+			down = false;
+		}
+
 		left = true;
 		right = false;
 	}
@@ -119,6 +141,10 @@ void player::move() {
 		else if (CheckHitKey(KEY_INPUT_DOWN) != 0 || CheckHitKey(KEY_INPUT_NUMPAD2) != 0) {
 			up = false;
 			down = true;
+		}
+		else {
+			up = false;
+			down = false;
 		}
 		left = false;
 		right = true;
@@ -167,20 +193,33 @@ void player::move() {
 	if (py >= FIELD_MAX_Y - 32) {
 		py = FIELD_MAX_Y - 32;
 	}*/
+	
 
-	if (!(px < FIELD_MIN_X + 32 || px > FIELD_MAX_X - 32 || py < FIELD_MIN_Y + 32 || py > FIELD_MAX_Y - 32)) {
-		if (up) {
-			py -= speed;
-		}
-		if (down) {
-			py += speed;
-		}
-		if (left) {
-			px -= speed;
-		}
-		if (right) {
-			px += speed;
-		}
+
+	if (up) {
+		py -= speed;
+	}
+	if (down) {
+		py += speed;
+	}
+	if (left) {
+		px -= speed;
+	}
+	if (right) {
+		px += speed;
+	}
+
+	if (px < FIELD_MIN_X + 24) {
+		px = FIELD_MIN_X + 24;
+	}
+	if (px > FIELD_MAX_X - 24) {
+		px = FIELD_MAX_X - 24;
+	}
+	if (py < FIELD_MIN_Y + 24) {
+		py = FIELD_MIN_Y + 24;
+	}
+	if (py > FIELD_MAX_Y - 24) {
+		py = FIELD_MAX_Y - 24;
 	}
 }
 
@@ -213,8 +252,8 @@ void player::draw() {
 	DrawRotaGraph(px, py, 1, 0, graphic[j], TRUE);
 	if (slow) {
 		i++;
-		DrawRotaGraph(px, py, 1, i / 4, slow_effe, TRUE);
-		DrawRotaGraph(px, py, 1, i / -4, slow_effe, TRUE);
+		DrawRotaGraph(px, py, 1, i *(4*(PI/180)), slow_effe, TRUE);
+		DrawRotaGraph(px, py, 1, -1*(i *(4*(PI/180))), slow_effe, TRUE);
 	}
 
 #ifdef _DEBUG

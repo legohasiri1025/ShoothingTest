@@ -5,6 +5,8 @@
 
 class player {
 protected:
+	unsigned int highscore;
+	unsigned int score;
 	unsigned char playermode;
 	unsigned char player_num;
 	unsigned char bomb;

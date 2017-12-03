@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="source\bullet.cpp" />
     <ClCompile Include="source\bullet_graphic.cpp" />
+    <ClCompile Include="source\font.cpp" />
     <ClCompile Include="source\sound.cpp" />
     <ClInclude Include="source\enemy.h" />
     <ClCompile Include="source\enemy.cpp" />
@@ -29,6 +30,7 @@
     <ClCompile Include="source\func.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\player01.cpp" />
+    <ClInclude Include="source\font.h" />
     <ClInclude Include="source\sound.h" />
   </ItemGroup>
   <ItemGroup>
