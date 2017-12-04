@@ -46,7 +46,6 @@ player::player()
 	mainshotgr = LoadGraph("player/player01/shot.png");
 	optionshotgr = LoadGraph("player/player01/optionshot.png");
 	optionshotgr = LoadGraph("player/player01/option.png");
-	shotse = LoadSoundMem("se/shot.ogg");
 
 	shotcount1 = 0;
 	shotcount2 = 0;

@@ -1,10 +1,10 @@
 #include "DxLib.h"
-//#include "../resource.h"
 #include "player.h"
 #include "front.h"
 #include "sound.h"
 #include "font.h"
-
+#include <time.h>
+#include <string>
 
 int counter = 0, FpsTime[2] = { 0, }, FpsTime_i = 0;
 double Fps = 0.00;
@@ -27,27 +27,34 @@ void mswindow() {
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
-
-	ChangeWindowMode(TRUE);
+	char rate = 2;
+	BOOL FULLSCREEN = 1;
+	ChangeWindowMode(FULLSCREEN);
 	SetMainWindowText("東方須神伝～The Pecten Maiden.  Ver.β");
 	// ＤＸライブラリの初期化
 	if (DxLib_Init() == -1) return -1;
-
+	SetWindowSizeExtendRate(rate, rate);
 	// 裏画面を使用
 	SetDrawScreen(DX_SCREEN_BACK);
 	player reimutest;
-	//shot reimushot;
 	front front;
-	double fps_ = 60;
 	Count_ f=0;
+	soundload();
+	fontload();
+	//バージョン
+	int mj = 1, mn = 0;
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0) {
 		f++;
-		//DrawBox(FIELD_MIN_X, FIELD_MIN_Y, FIELD_MAX_X, FIELD_MAX_Y, RGB(0, 255, 0), TRUE);
 		front.draw();
 		reimutest.updata();
+		playbgm(bgm1_1);
+		DrawFormatStringToHandle(540, 460, RGB(255, 255, 255),font_fps,"%02.2f fps", fps());
+
 		
-		DrawFormatStringToHandle(540, 460, RGB(255, 255, 255),font_fps,"%02.1f fps", fps_);
-		fps_ = fps();
+		//debug
+#ifdef _DEBUG
+		DrawFormatString(240, 0, RGB(255, 255, 255), "ver:%d.%d.%x.%x",mj,mn,__TIME__ ,__DATE__);
+#endif
 	}
 	// ＤＸライブラリの使用終了
 	DxLib_End();

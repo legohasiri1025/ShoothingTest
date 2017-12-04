@@ -44,7 +44,6 @@ protected:
 	Graph_ mainshotgr;
 	Graph_ optionshotgr;
 	Graph_ optiongr;
-	Sound_ shotse;
 	bool p_shot[P_MAX_SHOT][2];
 	bool hit[P_MAX_SHOT][2];
 	bool shotkey;

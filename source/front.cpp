@@ -30,11 +30,11 @@ void front::draw() {
 	DrawGraph(440, 190, ch_graze_g, TRUE);
 
 	//’l‚Ì•\Ž¦
-	DrawFormatString(520, 60, RGB(255, 255, 255),"%08d", highscore);
-	DrawFormatString(520, 80, RGB(255, 255, 255), "%08d", score);
-	DrawFormatString(520, 110, RGB(255, 255, 255), "%d", player_num);
-	DrawFormatString(520, 130, RGB(255, 255, 255), "%d", bomb);
-	DrawFormatString(520, 150, RGB(255, 255, 255), "%1.2f / 4.00", power);
-	DrawFormatString(520, 170, RGB(255, 255, 255), "%d", point);
-	DrawFormatString(520, 190, RGB(255, 255, 255), "%d", graze);
+	DrawFormatStringToHandle(520, 60, RGB(255, 255, 255), font_front, "%08d", highscore);
+	DrawFormatStringToHandle(520, 80, RGB(255, 255, 255), font_front, "%08d", score);
+	DrawFormatStringToHandle(520, 110, RGB(255, 255, 255), font_front, "%d", player_num);
+	DrawFormatStringToHandle(520, 130, RGB(255, 255, 255), font_front, "%d", bomb);
+	DrawFormatStringToHandle(520, 150, RGB(255, 255, 255), font_front, "%1.2f / 4.00", power);
+	DrawFormatStringToHandle(520, 170, RGB(255, 255, 255), font_front, "%d", point);
+	DrawFormatStringToHandle(520, 190, RGB(255, 255, 255), font_front, "%d", graze);
 }
