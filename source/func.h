@@ -5,10 +5,9 @@
 
 
 //extern	int		EnemyShotNum;
-
-#define loop(x)	for(int i=0; i < x; ++i)
+extern int key[256];
 inline	double	Rand(double min, double max);//—”‚ÌŽæ“¾
-
+void inputkey();
 
 inline	void	SetSpeed(double speed);
 inline	void	SetAngle(double angle);

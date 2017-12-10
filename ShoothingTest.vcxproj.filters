@@ -16,6 +16,12 @@
     <Filter Include="picture">
       <UniqueIdentifier>{3666fe7c-4e6d-43ef-8dab-40db35ce77d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="enemy">
+      <UniqueIdentifier>{45a91c19-b464-4446-9f8d-3dca5eba4e54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="stage">
+      <UniqueIdentifier>{2e1e41f5-7d13-497e-bb1b-828626de8182}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\bullet.cpp">
@@ -48,6 +54,9 @@
     <ClCompile Include="source\font.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="source\stage.cpp">
+      <Filter>stage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\bullet.h">
@@ -78,6 +87,12 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="source\font.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sol.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="source\stage.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -150,5 +165,16 @@
     <Image Include="front\front_star.png">
       <Filter>picture</Filter>
     </Image>
+    <Image Include="enemy\enemy1_b.dds">
+      <Filter>enemy</Filter>
+    </Image>
+    <Image Include="enemy\enemy1_r.dds">
+      <Filter>enemy</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="stage\source\stage1.lua">
+      <Filter>stage</Filter>
+    </None>
   </ItemGroup>
 </Project>

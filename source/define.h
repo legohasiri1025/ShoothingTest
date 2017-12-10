@@ -1,5 +1,9 @@
 #ifndef _DEFINE_
 #define _DEFINE_
+
+#define Loop(num) for(int _i=0;_i<num;_i++)
+
+
 typedef int		Graph_;
 typedef int		Count_;
 typedef int		_Bullet_;
@@ -10,7 +14,7 @@ typedef const int define;
 typedef const float define_f;
 typedef const double define_d;
 
-define E_MAX_SHOT		= 2000;
+define E_MAX_SHOT		= 50;
 define P_MAX_SHOT		= 50;
 define_f PI				= 3.141592653589793f;
 define FIELD_MIN_X		= 32;

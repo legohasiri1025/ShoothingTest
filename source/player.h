@@ -23,6 +23,7 @@ protected:
 	int speed;
 
 	bool life;
+
 	bool right;
 	bool left;
 	bool down;

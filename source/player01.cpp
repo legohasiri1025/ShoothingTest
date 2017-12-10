@@ -7,7 +7,7 @@
 #include <cmath>
 
 player::player()
-	:px(228), py(405),score(100000),bomb(DEFAULT_BOMB), player_num(DEFAULT_PLAYER), power(1.00), point(10000), count1(0), graze(0),count2(0), i(0), j(0)
+	:px(228), py(405),score(0),bomb(DEFAULT_BOMB), player_num(DEFAULT_PLAYER), power(1.00), point(10000), count1(0), graze(0),count2(0), i(0), j(0)
 {
 	/*px = 228;
 	py = 405;
@@ -316,7 +316,7 @@ void player::mainshot1() {
 				playse(shotse);
 				p_shot[k][0] = true;
 				sx[k][0] = px - 16;
-				sy[k][0] = py - 32;
+				sy[k][0] = py - 16;
 				break;
 			}
 			else {
@@ -347,7 +347,7 @@ void player::mainshot2() {
 			if (!p_shot[k][1]) {
 				p_shot[k][1] = true;
 				sx[k][1] = px + 16;
-				sy[k][1] = py - 32;
+				sy[k][1] = py - 16;
 				break;
 			}
 			else {

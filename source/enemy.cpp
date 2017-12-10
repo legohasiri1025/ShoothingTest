@@ -20,11 +20,9 @@ enum type {
 	ph_y_flower,
 	sunflower,
 	ph_sunflower
-
 };
 
-enemy::enemy(const char *id, int hp, type type) {
-	e_id = *id;
+enemy::enemy(int hp, type type) {
 	e_hp = hp;
 
 }
@@ -45,3 +43,6 @@ int enemy::GetEnemyHp() {
 	return e_hp;
 }
 
+void enemy::setlife(int hp) {
+	e_hp = hp;
+}

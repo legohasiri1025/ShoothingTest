@@ -23,6 +23,7 @@
     <ClCompile Include="source\bullet_graphic.cpp" />
     <ClCompile Include="source\font.cpp" />
     <ClCompile Include="source\sound.cpp" />
+    <ClCompile Include="source\stage.cpp" />
     <ClInclude Include="source\enemy.h" />
     <ClCompile Include="source\enemy.cpp" />
     <ClCompile Include="source\enemy_shot.cpp" />
@@ -31,7 +32,9 @@
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\player01.cpp" />
     <ClInclude Include="source\font.h" />
+    <ClInclude Include="source\sol.hpp" />
     <ClInclude Include="source\sound.h" />
+    <ClInclude Include="source\stage.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -46,6 +49,8 @@
     <ResourceCompile Include="ST_01.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="enemy\enemy1_b.dds" />
+    <Image Include="enemy\enemy1_r.dds" />
     <Image Include="front\front_bomb.png" />
     <Image Include="front\front_enemymarker.png" />
     <Image Include="front\front_front.png" />
@@ -67,6 +72,9 @@
     <Image Include="title\title_copyright.png" />
     <Image Include="title\title_logo.png" />
     <Image Include="title\title_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="stage\source\stage1.lua" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -147,6 +155,7 @@
       <AdditionalLibraryDirectories>C:\cpp\DxLibNoneModel_NoneSoftDrawCode_VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <Version>
       </Version>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -183,6 +192,7 @@
       <AdditionalLibraryDirectories>C:\cpp\DxLibNoneModel_NoneSoftDrawCode_VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <Version>
       </Version>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

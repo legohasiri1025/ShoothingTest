@@ -5,36 +5,37 @@
 
 int EnemyShotNum = 0;
 
-void enemy_shot::Shot(Point_ x, Point_ y, _Color color, Type type, double angle, double speed) {
-	ShotFlag(x, y, color, type, angle, speed);
-	FireShot();
+void enemy::eShot(Point_ x, Point_ y, _Color color, Type type, double angle, double speed) {
+	eShotFlag(x, y, color, type, angle, speed);
+	eFireShot();
 }
 
-int	enemy_shot::ShotFlag(Point_ x, Point_ y, _Color color, Type type, double angle, double speed) {
+int	enemy::eShotFlag(Point_ x, Point_ y, _Color color, Type type, double angle, double speed) {
 	int i;
-	for (i = 0; i < E_MAX_SHOT; i++)
-		if (!flag)
+	for (i = 0; i < E_MAX_SHOT; i++) {
+		if (!shotflag)
 			break;
-	if (i == E_MAX_SHOT)
-		return -1;
+		if (i == E_MAX_SHOT)
+			return -1;
 
 
-	{
-		nx = x;
-		ny = y;
-		bullet = BulletData[type][color].graph;
+		{
+			nx[i] = x;
+			ny[i] = y;
+			bullet = BulletData[type][color].graph;
 
-		//ｘ、ｙ方向への移動量
-		sx = cos(angle*(PI / 180))*speed;
-		sy = sin(angle*(PI / 180))*speed;
+			//ｘ、ｙ方向への移動量
+			sx[i] = cos(angle*(PI / 180))*speed;
+			sy[i] = sin(angle*(PI / 180))*speed;
 
-		flag = true;
-		EnemyShotNum++;
+			shotflag = true;
+			EnemyShotNum++;
+		}
 	}
 	return 0;
 }
 
-void enemy_shot::FireShot() {
+void enemy::eFireShot() {
 	int i, Con, Num;
 
 	// 弾の数だけ移動処理を繰り返す
@@ -43,20 +44,20 @@ void enemy_shot::FireShot() {
 	for (i = 0; i < E_MAX_SHOT; i++)
 	{
 		// 弾のデータが有効な場合は処理
-		if (flag)
+		if (shotflag)
 		{
 			// 移動処理
-			nx += sx;
-			ny += sy;
+			nx[i] += sx[i];
+			ny[i] += sy[i];
 
 			// 画面外に出たら弾情報を消去する
-			if ((nx < -20) ||
-				(nx > 660) ||
-				(ny < -20) ||
-				(ny > 500))
+			if ((nx[i] < -20) ||
+				(nx[i] > 660) ||
+				(ny[i] < -20) ||
+				(ny[i] > 500))
 			{
 				// データの有効フラグを倒す
-				flag = false;
+				shotflag = false;
 
 				// 弾の数を減らす
 				EnemyShotNum--;
@@ -66,8 +67,8 @@ void enemy_shot::FireShot() {
 			{
 				int x, y;
 
-				x = nx;
-				y = ny;
+				x = nx[i];
+				y = ny[i];
 
 				DrawRotaGraph(x, y, 1, 0, bullet, TRUE);
 			}
@@ -82,15 +83,15 @@ void enemy_shot::FireShot() {
 }
 
 
-void enemy_shot::CreateShot01(Point_ x, Point_ y, double speed, double angle, _Color color, Type type, Count_ late = 0) {
+void enemy::eCreateShot01(Point_ x, Point_ y, double speed, double angle, _Color color, Type type, Count_ late = 0) {
 	Count_ count = 0;
-	Shot(x, y, color, type, angle, speed);
+	eShot(x, y, color, type, angle, speed);
 	if (count >= late) {
 
 	}
 	count++;
 }
 
-void enemy_shot::CreateShot02(Point_ x, Point_ y, double speed, double angle, double acceleration, double max_speed, _Color color, Type type, Count_ late = 0) {
+void enemy::eCreateShot02(Point_ x, Point_ y, double speed, double angle, double acceleration, double max_speed, _Color color, Type type, Count_ late = 0) {
 
 }
