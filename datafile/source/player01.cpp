@@ -28,8 +28,8 @@ player::player()
 	down = false;
 	slow = false;
 	graphic[24] = 0;
-	LoadDivGraph("player/player01/player.png", 24, 8, 3, 32, 48, graphic);
-	slow_effe = LoadGraph("player/player-slow-eff.png");
+	LoadDivGraph("datafile/player/player01/player.png", 24, 8, 3, 32, 48, graphic);
+	slow_effe = LoadGraph("datafile/player/player-slow-eff.png");
 	if (highscore <= score) {
 		highscore = score;
 	}
@@ -43,9 +43,9 @@ player::player()
 	s_power = SUBPOWER;
 	span = SPAN;
 
-	mainshotgr = LoadGraph("player/player01/shot.png");
-	optionshotgr = LoadGraph("player/player01/optionshot.png");
-	optionshotgr = LoadGraph("player/player01/option.png");
+	mainshotgr = LoadGraph("datafile/player/player01/shot.png");
+	optionshotgr = LoadGraph("datafile/player/player01/optionshot.png");
+	optionshotgr = LoadGraph("datafile/player/player01/option.png");
 
 	shotcount1 = 0;
 	shotcount2 = 0;
