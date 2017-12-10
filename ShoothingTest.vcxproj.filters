@@ -172,9 +172,4 @@
       <Filter>enemy</Filter>
     </Image>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="stage\source\stage1.lua">
-      <Filter>stage</Filter>
-    </None>
-  </ItemGroup>
 </Project>
