@@ -8,8 +8,14 @@ void playse(Sound_ se) {
 	PlaySoundMem(se, DX_PLAYTYPE_BACK);
 }
 Sound_ shotse;
-Sound_ bgm1_1;
+
+
+Sound_ bgm[7][2];
+Sound_ title;
+Sound_ ending;
+Sound_ staffroll;
+Sound_ gameover;
 void soundload() {
-	 shotse = LoadSoundMem("se/shot.ogg");
-	 bgm1_1 = LoadSoundMem("bgm/02.ogg");
+	 shotse = LoadSoundMem("datafile/se/shot.ogg");
+	 bgm[0][0] = LoadSoundMem("datafile/bgm/02.ogg");
 }

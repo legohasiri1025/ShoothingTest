@@ -2,7 +2,25 @@
 #include "enemy.h"
 #include "stage.h"
 #include "func.h"
-
+#include "sound.h"
+enum type {//b=Â r=Ô y=‰© g=—Î ph=‡
+	b_meido,
+	b_flower,
+	b_fairy,
+	r_meido,
+	r_flower,
+	r_fairy,
+	y_flower,
+	y_fairy,
+	g_flower,
+	g_fairy,
+	ph_b_flower,
+	ph_r_flower,
+	ph_g_flower,
+	ph_y_flower,
+	sunflower,
+	ph_sunflower
+};
 stage::stage() {
 	stageinit();
 	stagenum = 1;
@@ -13,12 +31,19 @@ void stage::stageinit() {
 	stagenum++;
 	stageclear = false;
 }
-
+enemy *testenemy = new enemy(450, 0, 30, b_meido, 4, 40, 2, 2);
 void stage::stage1() {
 	stagecount++;
+	if (!testenemy->updata()) {
+		delete testenemy;
+	}
+	else {
+		
 
+		testenemy->move(216, 480, 4.0, 30, 800, stagecount);
 
-	
+		testenemy->updata();
+	}
 }
 
 void stage::stage2() {

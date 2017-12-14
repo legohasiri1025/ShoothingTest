@@ -7,7 +7,7 @@ void playse(Sound_ se);
 void soundload();
 
 extern Sound_ shotse;
-extern Sound_ bgm1_1;
+extern Sound_ bgm[7][2];
 
 
 #endif

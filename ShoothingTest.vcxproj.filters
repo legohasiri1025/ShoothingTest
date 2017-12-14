@@ -24,79 +24,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\bullet.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="source\bullet_graphic.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="source\front.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="source\func.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="source\main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="source\player01.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="source\enemy.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="source\enemy_shot.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="source\sound.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="source\font.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="source\stage.cpp">
-      <Filter>stage</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="source\bullet.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\define.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\front.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\func.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\player.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\player01.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\enemy.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sound.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\font.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sol.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="source\stage.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include="ST_01.rc">
       <Filter>リソース ファイル</Filter>
     </ResourceCompile>
@@ -105,71 +32,186 @@
     <Image Include="icon1.ico">
       <Filter>リソース ファイル</Filter>
     </Image>
-    <Image Include="player\player-slow-eff.png">
+    <Image Include="datafile\title\title_back.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="player\player01\option.png">
+    <Image Include="datafile\title\title_copyright.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="player\player01\optionshot.png">
+    <Image Include="datafile\title\title_logo.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="player\player01\player.png">
+    <Image Include="datafile\title\title_menu.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="player\player01\shot.png">
+    <Image Include="datafile\player\player-slow-eff.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="title\title_back.png">
+    <Image Include="datafile\player\player01\option.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="title\title_copyright.png">
+    <Image Include="datafile\player\player01\optionshot.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="title\title_logo.png">
+    <Image Include="datafile\player\player01\player.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="title\title_menu.png">
+    <Image Include="datafile\player\player01\shot.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="front\front_bomb.png">
+    <Image Include="datafile\front\front_bomb.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="front\front_enemymarker.png">
+    <Image Include="datafile\front\front_enemymarker.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="front\front_front.png">
+    <Image Include="datafile\front\front_front.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="front\front_graze.png">
+    <Image Include="datafile\front\front_graze.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="front\front_hiscore.png">
+    <Image Include="datafile\front\front_hiscore.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="front\front_life.png">
+    <Image Include="datafile\front\front_life.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="front\front_player.png">
+    <Image Include="datafile\front\front_player.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="front\front_point.png">
+    <Image Include="datafile\front\front_point.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="front\front_power.png">
+    <Image Include="datafile\front\front_power.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="front\front_score.png">
+    <Image Include="datafile\front\front_score.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="front\front_star.png">
+    <Image Include="datafile\front\front_star.png">
       <Filter>picture</Filter>
     </Image>
-    <Image Include="enemy\enemy1_b.dds">
+    <Image Include="datafile\enemy\enemy1_b.dds">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\enemy\enemy1_r.dds">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\bullet\red\2.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\bullet\red\3.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\bullet\red\4.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\bullet\red\7.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\bullet\red\8.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\bullet\red\9.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\bullet\red\10.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\bullet\red\12.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\bullet\red\13.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\bullet\red\20.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\bullet\red\25.png">
+      <Filter>picture</Filter>
+    </Image>
+    <Image Include="datafile\enemy\b_meido.dds">
       <Filter>enemy</Filter>
     </Image>
-    <Image Include="enemy\enemy1_r.dds">
+    <Image Include="datafile\enemy\r_meido.dds">
       <Filter>enemy</Filter>
     </Image>
+    <Image Include="source\dummy.dds">
+      <Filter>enemy</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="datafile\source\bullet.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="datafile\source\bullet_graphic.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="datafile\source\enemy.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="datafile\source\enemy_shot.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="datafile\source\font.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="datafile\source\front.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="datafile\source\func.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="datafile\source\main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="datafile\source\player01.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="datafile\source\sound.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="datafile\source\stage.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="datafile\source\bullet.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="datafile\source\class_admin.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="datafile\source\define.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="datafile\source\enemy.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="datafile\source\font.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="datafile\source\front.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="datafile\source\func.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="datafile\source\player.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="datafile\source\player01.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="datafile\source\sol.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="datafile\source\sound.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="datafile\source\stage.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

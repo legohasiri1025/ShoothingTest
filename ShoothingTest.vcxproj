@@ -19,59 +19,73 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\bullet.cpp" />
-    <ClCompile Include="source\bullet_graphic.cpp" />
-    <ClCompile Include="source\font.cpp" />
-    <ClCompile Include="source\sound.cpp" />
-    <ClCompile Include="source\stage.cpp" />
-    <ClInclude Include="source\enemy.h" />
-    <ClCompile Include="source\enemy.cpp" />
-    <ClCompile Include="source\enemy_shot.cpp" />
-    <ClCompile Include="source\front.cpp" />
-    <ClCompile Include="source\func.cpp" />
-    <ClCompile Include="source\main.cpp" />
-    <ClCompile Include="source\player01.cpp" />
-    <ClInclude Include="source\font.h" />
-    <ClInclude Include="source\sol.hpp" />
-    <ClInclude Include="source\sound.h" />
-    <ClInclude Include="source\stage.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="source\bullet.h" />
-    <ClInclude Include="source\define.h" />
-    <ClInclude Include="source\front.h" />
-    <ClInclude Include="source\func.h" />
-    <ClInclude Include="source\player.h" />
-    <ClInclude Include="source\player01.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include="ST_01.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="enemy\enemy1_b.dds" />
-    <Image Include="enemy\enemy1_r.dds" />
-    <Image Include="front\front_bomb.png" />
-    <Image Include="front\front_enemymarker.png" />
-    <Image Include="front\front_front.png" />
-    <Image Include="front\front_graze.png" />
-    <Image Include="front\front_hiscore.png" />
-    <Image Include="front\front_life.png" />
-    <Image Include="front\front_player.png" />
-    <Image Include="front\front_point.png" />
-    <Image Include="front\front_power.png" />
-    <Image Include="front\front_score.png" />
-    <Image Include="front\front_star.png" />
+    <Image Include="datafile\bullet\red\10.png" />
+    <Image Include="datafile\bullet\red\12.png" />
+    <Image Include="datafile\bullet\red\13.png" />
+    <Image Include="datafile\bullet\red\2.png" />
+    <Image Include="datafile\bullet\red\20.png" />
+    <Image Include="datafile\bullet\red\25.png" />
+    <Image Include="datafile\bullet\red\3.png" />
+    <Image Include="datafile\bullet\red\4.png" />
+    <Image Include="datafile\bullet\red\7.png" />
+    <Image Include="datafile\bullet\red\8.png" />
+    <Image Include="datafile\bullet\red\9.png" />
+    <Image Include="datafile\enemy\b_meido.dds" />
+    <Image Include="datafile\enemy\enemy1_b.dds" />
+    <Image Include="datafile\enemy\enemy1_r.dds" />
+    <Image Include="datafile\enemy\r_meido.dds" />
+    <Image Include="datafile\front\front_bomb.png" />
+    <Image Include="datafile\front\front_enemymarker.png" />
+    <Image Include="datafile\front\front_front.png" />
+    <Image Include="datafile\front\front_graze.png" />
+    <Image Include="datafile\front\front_hiscore.png" />
+    <Image Include="datafile\front\front_life.png" />
+    <Image Include="datafile\front\front_player.png" />
+    <Image Include="datafile\front\front_point.png" />
+    <Image Include="datafile\front\front_power.png" />
+    <Image Include="datafile\front\front_score.png" />
+    <Image Include="datafile\front\front_star.png" />
+    <Image Include="datafile\player\player-slow-eff.png" />
+    <Image Include="datafile\player\player01\option.png" />
+    <Image Include="datafile\player\player01\optionshot.png" />
+    <Image Include="datafile\player\player01\player.png" />
+    <Image Include="datafile\player\player01\shot.png" />
+    <Image Include="datafile\title\title_back.png" />
+    <Image Include="datafile\title\title_copyright.png" />
+    <Image Include="datafile\title\title_logo.png" />
+    <Image Include="datafile\title\title_menu.png" />
     <Image Include="icon1.ico" />
-    <Image Include="player\player-slow-eff.png" />
-    <Image Include="player\player01\option.png" />
-    <Image Include="player\player01\optionshot.png" />
-    <Image Include="player\player01\player.png" />
-    <Image Include="player\player01\shot.png" />
-    <Image Include="title\title_back.png" />
-    <Image Include="title\title_copyright.png" />
-    <Image Include="title\title_logo.png" />
-    <Image Include="title\title_menu.png" />
+    <Image Include="source\dummy.dds" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="datafile\source\bullet.cpp" />
+    <ClCompile Include="datafile\source\bullet_graphic.cpp" />
+    <ClCompile Include="datafile\source\enemy.cpp" />
+    <ClCompile Include="datafile\source\enemy_shot.cpp" />
+    <ClCompile Include="datafile\source\font.cpp" />
+    <ClCompile Include="datafile\source\front.cpp" />
+    <ClCompile Include="datafile\source\func.cpp" />
+    <ClCompile Include="datafile\source\main.cpp" />
+    <ClCompile Include="datafile\source\player01.cpp" />
+    <ClCompile Include="datafile\source\sound.cpp" />
+    <ClCompile Include="datafile\source\stage.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="datafile\source\bullet.h" />
+    <ClInclude Include="datafile\source\class_admin.h" />
+    <ClInclude Include="datafile\source\define.h" />
+    <ClInclude Include="datafile\source\enemy.h" />
+    <ClInclude Include="datafile\source\font.h" />
+    <ClInclude Include="datafile\source\front.h" />
+    <ClInclude Include="datafile\source\func.h" />
+    <ClInclude Include="datafile\source\player.h" />
+    <ClInclude Include="datafile\source\player01.h" />
+    <ClInclude Include="datafile\source\sol.hpp" />
+    <ClInclude Include="datafile\source\sound.h" />
+    <ClInclude Include="datafile\source\stage.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -13,7 +13,7 @@ double fps() {
 	if (FpsTime_i == 0)
 		FpsTime[0] = GetNowCount();               //1周目の時間取得
 	if (FpsTime_i == 29) {
-		FpsTime[1] = GetNowCount();               //50周目の時間取得
+		FpsTime[1] = GetNowCount();               //30周目の時間取得
 		Fps = 1000.00f / ((FpsTime[1] - FpsTime[0]) / 29.00f);//測定した値からfpsを計算
 		FpsTime_i = 0;//カウントを初期化
 	}
@@ -36,6 +36,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	char rate = 1;
 	BOOL FULLSCREEN = 1;
 	ChangeWindowMode(FULLSCREEN);
+
+#ifndef _DEBUG
+	SetOutApplicationLogValidFlag(FALSE);
+#endif
+	SetUseDXArchiveFlag(TRUE);
+	SetDXArchiveExtension("dat");
+	SetDXArchiveKeyString("Pecten");
 	SetMainWindowText("東方須神伝～The Pecten Maiden.  Ver.β");
 	// ＤＸライブラリの初期化
 	if (DxLib_Init() == -1)
@@ -50,6 +57,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	fontload();
 	player reimu;
 
+
+	
 	//バージョン
 	int mj = 1, mn = 0;
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0) {
