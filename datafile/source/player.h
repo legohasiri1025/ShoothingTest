@@ -45,6 +45,8 @@ protected:
 	Graph_ mainshotgr;
 	Graph_ optionshotgr;
 	Graph_ optiongr;
+	int atarix_main;
+	int atariy_main;
 	bool p_shot[P_MAX_SHOT][2];
 	bool hit[P_MAX_SHOT][2];
 	bool shotkey;
@@ -64,6 +66,7 @@ public:
 	int GetPlayerY();
 	void SetPlayerX(Point_ x);
 	void SetPlayerY(Point_ y);
+	virtual ~player();
 };
 /*
 class shot : protected player {

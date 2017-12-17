@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "enemy.h"
+#include "player.h"
 #include "stage.h"
 #include "func.h"
 #include "sound.h"
@@ -31,15 +32,17 @@ void stage::stageinit() {
 	stagenum++;
 	stageclear = false;
 }
-enemy *testenemy = new enemy(450, 0, 30, b_meido, 32, 40, 2, 2);
+enemy *testenemy = new enemy(450, 0, 30, b_meido, 16, 40, 2, 2);
+player reimu;
 void stage::stage1() {
 	stagecount++;
+	reimu.updata();
 	if (testenemy->updata()) {
 
 
 
 		if (stagecount > 60 && stagecount < 300)
-			testenemy->move(216, 200, 4.0);
+			testenemy->move(reimu.GetPlayerX(), reimu.GetPlayerY(),4.0);
 
 		if (stagecount > 330 && stagecount < 900)
 			testenemy->move(100, 100, 90);

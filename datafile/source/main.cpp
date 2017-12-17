@@ -1,9 +1,7 @@
 #include "DxLib.h"
-#include "player.h"
 #include "front.h"
 #include "sound.h"
 #include "font.h"
-#include "enemy.h"
 #include "stage.h"
 #include "func.h"
 
@@ -55,7 +53,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Count_ f=0;
 	soundload();
 	fontload();
-	player reimu;
 
 
 	
@@ -67,7 +64,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		front.draw();	
 		DrawFormatStringToHandle(540, 460, RGB(255, 255, 255),font_fps,"%02.2f fps", fps());
 		stage.stageupdate();
-		reimu.updata();
 		//debug
 #ifdef _DEBUG
 		DrawFormatString(240, 0, RGB(255, 255, 255), "ver:%d.%d.%x.%x",mj,mn,__TIME__ ,__DATE__);

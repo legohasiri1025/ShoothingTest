@@ -66,15 +66,15 @@ enemy::enemy(Point_ ini_x, Point_ ini_y, int hp, type type,int atari_r,Point_ sc
 	i_extend_p = extend_p;
 }
 
-int enemy::GetEnemyX() {
+Point_ enemy::GetEnemyX() {
 	return x;
 }
 
-int enemy::GetEnemyY() {
+Point_ enemy::GetEnemyY() {
 	return y;
 }
 
-int enemy::GetEnemyHp() {
+double enemy::GetEnemyHp() {
 	return e_hp;
 }
 
@@ -112,39 +112,41 @@ void enemy::move(Point_ x, Point_ y, Count_ count) {//‚·‚×‚Ä®”
 	else {
 		movenow = true;
 	}
-	DrawFormatString(enemy::x, enemy::y + atarix+16, RGB(255, 255, 255), "[%.2f]", speed_);
+	DrawFormatStringF((float)enemy::x, (float)enemy::y + atarix+16, RGB(255, 255, 255), "[%.2f]", speed_);
 }
 
 void enemy::move(Point_ x, Point_ y, double speed) {//‘æŽOˆø”‚Í•‚“®¬”“_
+	static Point_ xx, yy;
 	switch (movecount) {
 	case 0:
+		xx = x;
+		yy = y;
 		speed_ = speed;
 		break;
 	default:
 		movenow = true;
-		angle_ = atan2(y - enemy::y, x - enemy::x);
-		if (!(enemy::x >= speed_ - ceil(x) && enemy::x <= floor(x) + speed_)) {
+		angle_ = atan2(yy - enemy::y, xx - enemy::x);
+		if (!(enemy::x >= speed_ - ceil(xx) && enemy::x <= floor(xx) + speed_)) {
 			enemy::x += cos(angle_)*speed_;
 		}
 		else {
-			enemy::x = x;
+			enemy::x = xx;
 		}
-		if ((enemy::y >= speed_ - ceil(y) && enemy::y <= floor(y) + speed_)) {
+		if (!(enemy::y >= speed_ - ceil(yy) && enemy::y <= floor(yy) + speed_)) {
 			enemy::y += sin(angle_)*speed_;
 		}
 		else {
-			enemy::y = y;
+			enemy::y = yy;
 		}
 	}
 	movecount++;
-	if ((enemy::x == x&&enemy::y == y)) {
+	if ((enemy::x == xx&&enemy::y == yy)) {
 		movenow = false;
-		movecount = 0;
 	}
 	else {
 		movenow = true;
 	}
-	DrawFormatString(enemy::x, enemy::y + atarix + 16, RGB(255, 255, 255), "[%.2f]", speed_);
+	DrawFormatStringF((float)enemy::x, (float)enemy::y + atarix + 16, RGB(255, 255, 255), "[%.2f]", speed_);
 }
 
 
@@ -195,10 +197,10 @@ void enemy::draw() {
 
 	GetGraphSize(e_graph[0], &grx, &gry);
 	if (move_lr() == 2) {
-		DrawTurnGraph(x - (grx / 2), y - (gry / 2), e_graph[i], TRUE);
+		DrawTurnGraphF((float)x - (grx / 2), (float)y - (gry / 2), e_graph[i], TRUE);
 	}
 	else {
-		DrawGraph(x - (grx / 2), y - (gry / 2), e_graph[i], TRUE);
+		DrawGraphF((float)x - (grx / 2), (float)y - (gry / 2), e_graph[i], TRUE);
 	}
 }
 
@@ -218,22 +220,27 @@ void enemy::deth() {
 
 bool enemy::updata() {
 	count++;
+	int color = GetColor(255, 255, 255);
 #ifdef _DEBUG
 	DrawFormatString(260, FIELD_MAX_Y, RGB(255, 255, 255), "[x][y]=[%.1f][%.1f]", enemy::x, enemy::y);
-	DrawFormatString(enemy::x, enemy::y + +atarix+36, RGB(255, 255, 255), "[%.2f]", e_hp);
-	DrawCircle(enemy::x, enemy::y, atarix, RGB(0, 0, 255));
+	DrawFormatStringF((float)enemy::x, (float)enemy::y + +atarix+36, RGB(255, 255, 255), "[%.2f]", e_hp);
+	DrawCircleAA((float)enemy::x, (float)enemy::y, (float)atarix, 16,color);
 #endif
 	if (e_hp > 0) {
 		if (enemy::x <- 16 || enemy::x > 512 || enemy::y < -16 || enemy::y>512) {
 			enemyflag = false;
-			return false;
+			
 		}
 		for (int i = 0; i < P_MAX_SHOT; ++i) {
 			for (int j = 0; j < 2; ++j) {
 				if (player::p_shot[i][j]) {
-					if ((pow(enemy::x+(player::sx[i][j]),2)+ pow(enemy::y + (player::sy[i][j]),2))<atarix*atarix) {
+					if (enemy::x-atarix<player::sx[i][j]-atarix_main&&enemy::x + atarix>player::sx[i][j] + atarix_main) {
 						p_shot[i][j] = false;
+						color = GetColor(0, 255, 255);
 						e_hp -= m_power;
+					}
+					else {
+						color = GetColor(255, 0, 0);
 					}
 				}
 			}

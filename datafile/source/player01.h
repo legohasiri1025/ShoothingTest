@@ -16,6 +16,7 @@ define_d POWER					=5;
 define_d SUBPOWER				=3;
 define SPAN							=5;
 define ATARI_R						=1;
-
+define ATARIX_MAIN				= 5;
+define ATARIY_MAIN				= 32;
 
 #endif

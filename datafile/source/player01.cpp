@@ -43,6 +43,9 @@ player::player()
 	s_power = SUBPOWER;
 	span = SPAN;
 
+	atarix_main = ATARIX_MAIN;
+	atariy_main = ATARIY_MAIN;
+
 	mainshotgr = LoadGraph("datafile/player/player01/shot.png");
 	optionshotgr = LoadGraph("datafile/player/player01/optionshot.png");
 	optionshotgr = LoadGraph("datafile/player/player01/option.png");
@@ -335,6 +338,7 @@ void player::mainshot1() {
 			else {
 				sy[k][0] -= SHOTSPEED;
 				DrawRotaGraph(sx[k][0], sy[k][0], 1, 3*PI/2, mainshotgr, TRUE);
+				DrawBox(sx[k][0] -atarix_main, sy[k][0] -atariy_main, sx[k][0] +atarix_main, sy[k][0] +atariy_main,GetColor(0,0,255),TRUE);
 			}
 		}
 	}
@@ -366,6 +370,7 @@ void player::mainshot2() {
 			else {
 				sy[k][1] -= SHOTSPEED;
 				DrawRotaGraph(sx[k][1], sy[k][1], 1, 3 * PI / 2, mainshotgr, TRUE);
+				DrawBox(sx[k][0] - atarix_main, sy[k][0] - atariy_main, sx[k][0] + atarix_main, sy[k][0] + atariy_main, GetColor(0, 0, 255), TRUE);
 			}
 		}
 	}

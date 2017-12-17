@@ -47,9 +47,9 @@ class enemy :protected player{
 public:
 	enemy(Point_ ini_x,Point_ ini_y,int hp, type type,int atari_r, Point_ score_,/*itemdata*/int power, int point, int power_b = 0, int full = 0, int spell = 0, int spell_p = 0, int extend = 0, int extend_p = 0, bool enemy = true);
 
-	int GetEnemyX();
-	int GetEnemyY();
-	int GetEnemyHp();
+	Point_ GetEnemyX();
+	Point_ GetEnemyY();
+	double GetEnemyHp();
 
 	void setlife(int hp);
 	int move_lr();//“®‚¢‚Ä‚¢‚é•ûŒü‚ğ•Ô‚·{0=‚Ü‚Á‚·‚®A1=‰EA2=¶}
