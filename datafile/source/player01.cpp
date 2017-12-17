@@ -316,7 +316,7 @@ void player::mainshot1() {
 				playse(shotse);
 				p_shot[k][0] = true;
 				sx[k][0] = px - 16;
-				sy[k][0] = py - 16;
+				sy[k][0] = py - 10;
 				break;
 			}
 			else {
@@ -347,7 +347,7 @@ void player::mainshot2() {
 			if (!p_shot[k][1]) {
 				p_shot[k][1] = true;
 				sx[k][1] = px + 16;
-				sy[k][1] = py - 16;
+				sy[k][1] = py - 10;
 				break;
 			}
 			else {

@@ -4,14 +4,14 @@
 #define Loop(num) for(int _i=0;_i<num;_i++)
 
 
-typedef int		Graph_;
-typedef int		Count_;
-typedef int		_Bullet_;
-typedef int		Point_;
-typedef	int		Sound_;
+typedef int					Graph_;
+typedef int					Count_;
+typedef int					_Bullet_;
+typedef double			Point_;
+typedef	int					Sound_;
 
-typedef const int define;
-typedef const float define_f;
+typedef const int		define;
+typedef const float		define_f;
 typedef const double define_d;
 
 define E_MAX_SHOT		= 50;

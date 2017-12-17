@@ -14,16 +14,21 @@ class enemy :protected player{
 	Point_ old_x, now_x;
 
 	int e_id;
-	int e_hp;
+	double e_hp;
 	Point_ score;
+
+	double speed_ = 0;
+	double angle_ = 0;
 
 	int atarix;
 	int atariy;
 	Count_ count;
+	Count_ movecount;
 	//Count_ drawcount;
 	Graph_ e_graph[12];
 
 	bool enemyflag;
+	bool movenow;
 	int i_power;
 	int i_point;
 	int i_power_b;
@@ -48,8 +53,8 @@ public:
 
 	void setlife(int hp);
 	int move_lr();//動いている方向を返す{0=まっすぐ、1=右、2=左}
-	void move(Point_ x, Point_ y, Count_ fleam, Count_ start, Count_ end,Count_ count);//所要時間で設定
-	void move(Point_ x, Point_ y, double speed, Count_ start, Count_ end,Count_ count);//スピードで設定
+	void move(Point_ x, Point_ y, Count_ count);//所要時間で設定
+	void move(Point_ x, Point_ y, double speed);//スピードで設定
 	void effect();
 
 	void deth();

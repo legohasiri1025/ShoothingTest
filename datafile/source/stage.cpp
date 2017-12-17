@@ -31,18 +31,24 @@ void stage::stageinit() {
 	stagenum++;
 	stageclear = false;
 }
-enemy *testenemy = new enemy(450, 0, 30, b_meido, 4, 40, 2, 2);
+enemy *testenemy = new enemy(450, 0, 30, b_meido, 32, 40, 2, 2);
 void stage::stage1() {
 	stagecount++;
-	if (!testenemy->updata()) {
-		delete testenemy;
-	}
-	else {
-		
+	if (testenemy->updata()) {
 
-		testenemy->move(216, 480, 4.0, 30, 800, stagecount);
 
-		testenemy->updata();
+
+		if (stagecount > 60 && stagecount < 300)
+			testenemy->move(216, 200, 4.0);
+
+		if (stagecount > 330 && stagecount < 900)
+			testenemy->move(100, 100, 90);
+		if (stagecount > 900) {
+			//delete testenemy;
+		}
+		else {
+			testenemy->updata();
+		}
 	}
 }
 
@@ -74,6 +80,8 @@ void stage::stageex() {
 void stage::stageupdate() {
 	if (key[KEY_INPUT_ADD]==1) {
 		stageclear = true;
+	}else if (key[KEY_INPUT_SUBTRACT] == 1) {
+		stagenum--;
 	}
 
 	if (stageclear) {
@@ -131,7 +139,7 @@ void stage::stageupdate() {
 
 #ifdef _DEBUG
 	DrawFormatString(0, FIELD_MAX_Y, RGB(255, 255, 255), "stage[%d]", stagenum);
-	DrawFormatString(FIELD_MIN_X + 128, FIELD_MAX_Y, RGB(255, 255, 255), "stagecount[%d]", stagecount);
+	DrawFormatString(90, FIELD_MAX_Y, RGB(255, 255, 255), "stagecount[%d]", stagecount);
 #endif
 
 }

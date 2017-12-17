@@ -34,11 +34,15 @@ enemy::enemy(Point_ ini_x, Point_ ini_y, int hp, type type,int atari_r,Point_ sc
 	atariy = atari_r;
 	score = score_;
 	count = 0;
+
+	angle_ = 0;
+	speed_ = 0;
 	//drawcount = 0;
 	//hp設定
 	e_hp = hp;
-
+	movecount = 0;
 	enemyflag = true;
+	movenow = false;
 	//敵画像の読み込み
 	switch (type) {
 	case b_meido:
@@ -77,28 +81,70 @@ int enemy::GetEnemyHp() {
 void enemy::setlife(int hp) {
 	e_hp = hp;
 }
-
-void enemy::move(Point_ x, Point_ y, Count_ fleam, Count_ start, Count_ end, Count_ count) {//すべて整数
-	double angle = atan2(y - enemy::y, x - enemy::x);
-	int speed = sqrt((x - enemy::x)* (x - enemy::x) + (y - enemy::y)*(y - enemy::y)) / fleam;//距離を時間で割って速さを求める
-	if (count >= start&&count <= end) {
-		if (enemy::x != x) {
-			enemy::x += cos(angle)*speed;
-		}if (enemy::y != y) {
-			enemy::y += sin(angle)*speed;
+void enemy::move(Point_ x, Point_ y, Count_ count) {//すべて整数
+	
+	switch(movecount) {
+	case 0:
+		
+		speed_ = (sqrt((x - enemy::x)* (x - enemy::x) + (y - enemy::y)*(y - enemy::y)) / count);//距離を時間で割って速さを求める
+		break;
+	default:
+		movenow = true;
+		angle_ = atan2(y - enemy::y, x - enemy::x);
+		if (!(enemy::x >= speed_-ceil(x)&& enemy::x <= floor(x)+ speed_)) {
+			enemy::x += cos(angle_)*speed_;
+		}
+		else {
+			enemy::x = x;
+		}
+		if (!(enemy::y >= speed_ -ceil(y) && enemy::y <= floor(y)+ speed_)) {
+			enemy::y += sin(angle_)*speed_;
+		}
+		else {
+			enemy::y = y;
 		}
 	}
+	movecount++;
+	if ((enemy::x == x&&enemy::y == y)) {
+		movenow = false;
+		movecount = 0;
+	}
+	else {
+		movenow = true;
+	}
+	DrawFormatString(enemy::x, enemy::y + atarix+16, RGB(255, 255, 255), "[%.2f]", speed_);
 }
 
-void enemy::move(Point_ x, Point_ y, double speed, Count_ start, Count_ end,Count_ count) {//第三引数は浮動小数点
-	double angle = atan2(y - enemy::y, x - enemy::x);
-	if (count >= start&&count <= end) {
-		if (enemy::x != x) {
-			enemy::x += cos(angle)*speed;
-		}if (enemy::y != y) {
-			enemy::y += sin(angle)*speed;
+void enemy::move(Point_ x, Point_ y, double speed) {//第三引数は浮動小数点
+	switch (movecount) {
+	case 0:
+		speed_ = speed;
+		break;
+	default:
+		movenow = true;
+		angle_ = atan2(y - enemy::y, x - enemy::x);
+		if (!(enemy::x >= speed_ - ceil(x) && enemy::x <= floor(x) + speed_)) {
+			enemy::x += cos(angle_)*speed_;
+		}
+		else {
+			enemy::x = x;
+		}
+		if ((enemy::y >= speed_ - ceil(y) && enemy::y <= floor(y) + speed_)) {
+			enemy::y += sin(angle_)*speed_;
+		}
+		else {
+			enemy::y = y;
 		}
 	}
+	movecount++;
+	if ((enemy::x == x&&enemy::y == y)) {
+		movenow = false;
+		movecount = 0;
+	}
+	else {
+		movenow = true;
+	}
+	DrawFormatString(enemy::x, enemy::y + atarix + 16, RGB(255, 255, 255), "[%.2f]", speed_);
 }
 
 
@@ -173,18 +219,19 @@ void enemy::deth() {
 bool enemy::updata() {
 	count++;
 #ifdef _DEBUG
-	DrawFormatString(380, 460, RGB(255, 255, 255), "[x][y]=[%d][%d]", enemy::x, enemy::y);
+	DrawFormatString(260, FIELD_MAX_Y, RGB(255, 255, 255), "[x][y]=[%.1f][%.1f]", enemy::x, enemy::y);
+	DrawFormatString(enemy::x, enemy::y + +atarix+36, RGB(255, 255, 255), "[%.2f]", e_hp);
 	DrawCircle(enemy::x, enemy::y, atarix, RGB(0, 0, 255));
 #endif
 	if (e_hp > 0) {
-		if (enemy::x<0 || enemy::x>FIELD_MAX_X + FIELD_MIN_X || enemy::y < 0 || enemy::y>480) {
+		if (enemy::x <- 16 || enemy::x > 512 || enemy::y < -16 || enemy::y>512) {
 			enemyflag = false;
 			return false;
 		}
 		for (int i = 0; i < P_MAX_SHOT; ++i) {
 			for (int j = 0; j < 2; ++j) {
-				if (player::sx[i][j]>=enemy::x-atarix && player::sx[i][j] <= enemy::x + atarix) {
-					if (player::sy[i][j] >= enemy::y - atariy && player::sy[i][j] <= enemy::y + atariy) {
+				if (player::p_shot[i][j]) {
+					if ((pow(enemy::x+(player::sx[i][j]),2)+ pow(enemy::y + (player::sy[i][j]),2))<atarix*atarix) {
 						p_shot[i][j] = false;
 						e_hp -= m_power;
 					}
